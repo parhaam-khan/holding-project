@@ -1,0 +1,75 @@
+import Image from 'next/image';
+import styles from './layout.module.scss'
+import cs from 'classnames'
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+
+const Footer = () => {
+    const router = useRouter();
+const[active,setActive] = useState('homeActive');
+const data = JSON.parse(localStorage.getItem('holdingInfo')  || '{}')
+
+
+const handleChangeMenu = () => {
+if(router.pathname === `/${data.id}`){
+    setActive('homeActive')
+}else if(router.pathname === '/history'){
+    setActive('historyActive')
+}else if(router.pathname === '/profile'){
+    setActive('profileActive')
+}
+}
+useEffect(() => {
+    handleChangeMenu()
+},[router.pathname])
+
+    return ( 
+        <div className={styles.footer}>
+           <div className={styles.menuItem}>
+            <div className={cs(styles['extra-border'],active === 'homeActive' && styles[`${active}`])}></div>
+            <Link href="/">
+            <button className={styles['footer-btn']}>
+            <Image
+                src="icons/home-icon.svg"
+                alt="home icon"
+                width={24}
+                height={24}
+              />
+              <p>خانه</p>
+            </button>
+           </Link>
+           </div>
+           <div className={styles.menuItem}>
+           <Link href="/history">
+           <div className={cs(styles['extra-border'],active === 'historyActive' && styles[`${active}`])}></div>
+           <button className={styles['footer-btn']}>
+           <Image
+                src="icons/history-purchasing-icon.svg"
+                alt="history icon"
+                width={24}
+                height={24}
+              />
+              <p>سوابق خرید</p>
+           </button>
+           </Link>
+           </div>
+           <div className={styles.menuItem}>
+           <Link href="/profile">
+           <div className={cs(styles['extra-border'],active === 'profileActive' && styles[`${active}`])}></div>
+           <button className={styles['footer-btn']}>
+           <Image
+                src="icons/profile-icon.svg"
+                alt="notif icon"
+                width={24}
+                height={24}
+              />
+              <p>پروفایل</p>
+           </button>
+           </Link>
+           </div>
+        </div>
+     );
+}
+ 
+export default Footer;

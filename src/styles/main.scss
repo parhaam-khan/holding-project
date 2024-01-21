@@ -1,0 +1,9 @@
+@import "@/styles/mixins";
+
+
+@include font-face('YekanBakh', 'Yekan/Yekan\ Bakh\ EN\ 02\ Thin', normal, 200);
+@include font-face('YekanBakh', 'Yekan/Yekan\ Bakh\ EN\ 03\ Light', normal, 300);
+@include font-face('YekanBakh', 'Yekan/Yekan\ Bakh\ EN\ 04\ Regular', normal, 400);
+@include font-face('YekanBakh', 'Yekan/Yekan\ Bakh\ EN\ 05\ Medium', normal, 500);
+@include font-face('YekanBakh', 'Yekan/Yekan\ Bakh\ EN\ 06\ Bold', normal, 600);
+@include font-face('YekanBakh', 'Yekan/Yekan\ Bakh\ EN\ 07\ Heavy', normal, 700);

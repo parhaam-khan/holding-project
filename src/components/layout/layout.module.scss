@@ -1,0 +1,81 @@
+@import "@/styles/mixins";
+
+@include mobile() {
+  .navbar {
+    margin-bottom: 15px;
+    .holding-name-logo-notifs {
+    height: 56px;
+    padding: 10px;
+    background-color: #FCFCFD;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .holding-name-logo{
+        display: flex;
+        align-items: center;
+        .merchant-logo {
+            overflow: hidden;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+          }
+          .merchant-name {
+            font-size: 14px;
+            font-weight: 700;
+            margin-right: 10px;
+            color: #0C111D;
+          }
+      }
+      .notifs{
+        
+      }
+    
+    }
+  }
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #0C111D;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    .menuItem{
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      a{
+        width: 70px;
+        text-align: center;
+      }
+      .extra-border{
+        position: absolute;
+        top: 0;
+        right: 15%;
+        width: 70%;
+        height: 4px;
+        background-color: #0C111D;
+        border-radius: 0 0 20px 20px;
+        -webkit-border-radius: 0 0 20px 20px;
+        -moz-border-radius: 0 0 20px 20px;
+        -ms-border-radius: 0 0 20px 20px;
+        -o-border-radius: 0 0 20px 20px;
+        &.homeActive,&.profileActive,&.historyActive{
+          background-color: #fff;
+          }
+      }
+        .footer-btn{
+          background-color: #0C111D;
+          p{
+            font-size: 12px;
+            color: #98A2B3;
+          }
+        }
+    }
+  }
+}

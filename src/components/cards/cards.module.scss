@@ -1,0 +1,79 @@
+.branch-card {
+  position: relative;
+  width: 95%;
+  min-height: 272px;
+  background-color: #fcfcfd;
+  margin-bottom: 20px;
+  padding: 5px 5px 15px 5px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  .branch-img {
+    position: relative;
+    height: 136px;
+    .img {
+      object-fit: contain;
+      border-radius: 5px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      -ms-border-radius: 5px;
+      -o-border-radius: 5px;
+    }
+    .rate {
+      width: 60px;
+      position: absolute;
+      border: 1px solid #eaecf0;
+      bottom: -8%;
+      left: 10%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 7px 5px;
+      background-color: #fcfcfd;
+      border-radius: 10px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
+      -o-border-radius: 10px;
+      .rate-point {
+        height: 15px;
+        font-family: YekanBakh;
+      }
+    }
+  }
+  .branch-title {
+    h2 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #344054;
+    }
+  }
+  .branch-address {
+    display: flex;
+    .location-icon{
+        svg{
+        fill: #98A2B3;
+        }
+    }
+    p {
+     font-size: 12px;
+     margin-inline-start: 5px;
+     color: #667085;
+    }
+  }
+  .card-btn{
+    width: 100%;
+    padding: 5px;
+    background-color: #FCFCFD;
+    border: 1px solid #EAECF0;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
+}

@@ -1,0 +1,67 @@
+//tablet,iPads
+$breakpoint-tablet-min: 481px;
+$breakpoint-tablet-max: 768px;
+
+// mobile
+$breakpoint-mobile-min: 320px;
+$breakpoint-mobile-max: 480px;
+
+//Small screens, laptops 
+$breakpoint-labtop-min: 769px;
+$breakpoint-labtop-max: 1024px;
+
+//Desktops, large screens
+$breakpoint-desktop-min: 1025px;
+$breakpoint-desktop-max: 1200px;
+
+// Extra large screens, TV
+$breakpoint-upperdesktop-min: 1201px;
+
+//uppermobile
+$breakpoint-uppermobile-min: 320px;
+
+
+@mixin tablet() {
+    @media  only screen and (min-width: $breakpoint-tablet-min) and (max-width: $breakpoint-tablet-max) {
+      @content;
+    }
+  }
+  @mixin mobile() {
+    @media  only screen and (min-width: $breakpoint-mobile-min) and (max-width: $breakpoint-mobile-max) {
+      @content;
+    }
+  }
+  @mixin labtop() {
+    @media  only screen and (min-width: $breakpoint-labtop-min) and (max-width: $breakpoint-labtop-max) {
+      @content;
+    }
+  }
+  @mixin desktop() {
+    @media  only screen and (min-width: $breakpoint-desktop-min) and (max-width: $breakpoint-desktop-max) {
+      @content;
+    }
+  }
+  @mixin upperdesktop() {
+    @media  only screen and (min-width: $breakpoint-upperdesktop-min) {
+      @content;
+    }
+  }
+
+  @mixin uppermobile() {
+    @media  only screen and (min-width: $breakpoint-uppermobile-min){
+      @content;
+    }
+  }
+
+
+  @mixin font-face($family, $filename, $style, $weight){
+    @font-face{
+        font-family: $family;
+        font-style: $style;
+        font-weight: $weight;
+        src: url('../../public/fonts/#{$filename}.eot');
+        src: url('../../public/fonts/#{$filename}.woff') format("woff");
+        src: url('../../public/fonts/#{$filename}.ttf') format("truetype");
+        font-display: swap;
+    }
+  }
