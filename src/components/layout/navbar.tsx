@@ -1,7 +1,16 @@
 import Image from 'next/image';
 import styles from './layout.module.scss';
+import { useEffect, useState } from 'react';
 
 const Navbar = () => {
+    const[holdingInfo,setHoldingInfo] = useState<{[key: string]: any}>({});
+
+
+    useEffect(() => {
+        const data = JSON.parse(localStorage.getItem('holdingInfo')  || '{}') 
+        setHoldingInfo(data)
+    },[])
+
     return ( 
         <div className={styles.navbar}>
             <div className={styles['holding-name-logo-notifs']}>
@@ -9,15 +18,15 @@ const Navbar = () => {
                 <div className={styles['merchant-logo']}>
                 <Image
                 className={styles.img}
-                src="vercel.svg"
-                alt="merchant Logo"
+                src={holdingInfo?.logo}
+                alt={holdingInfo?.name || 'holding name'}
                 width={40}
                 height={40}
                 priority
               />
                 </div>
                 <h1 className={styles['merchant-name']}>
-                    رستوران ترکیه بورسا
+                    {holdingInfo?.name}
                 </h1>
                 </div>
          <div className={styles.notifs}>

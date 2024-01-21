@@ -8,11 +8,19 @@ import { useRouter } from 'next/router';
 const Footer = () => {
     const router = useRouter();
 const[active,setActive] = useState('homeActive');
-const data = JSON.parse(localStorage.getItem('holdingInfo')  || '{}')
+const[merchantId,setMerchantId] = useState('');
 
+useEffect(() => {
+    const data = JSON.parse(localStorage.getItem('holdingInfo')  || '{}') 
+    setMerchantId(data.id)
+},[])
+
+useEffect(() => {
+    handleChangeMenu()
+},[router.pathname])
 
 const handleChangeMenu = () => {
-if(router.pathname === `/${data.id}`){
+if(router.pathname === '/[merchantId]'){
     setActive('homeActive')
 }else if(router.pathname === '/history'){
     setActive('historyActive')
@@ -20,15 +28,13 @@ if(router.pathname === `/${data.id}`){
     setActive('profileActive')
 }
 }
-useEffect(() => {
-    handleChangeMenu()
-},[router.pathname])
+
 
     return ( 
         <div className={styles.footer}>
            <div className={styles.menuItem}>
             <div className={cs(styles['extra-border'],active === 'homeActive' && styles[`${active}`])}></div>
-            <Link href="/">
+            <Link href={`/${merchantId}`}>
             <button className={styles['footer-btn']}>
             <Image
                 src="icons/home-icon.svg"

@@ -1,7 +1,7 @@
 const History = () => {
     return ( 
         <div>
-            history of purchasing
+           سوابق خرید
         </div>
      );
 }

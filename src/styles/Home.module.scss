@@ -2,12 +2,12 @@
     width: 90%;
     margin: 0 auto;
     padding-bottom: 100px;
+    .branches{
+        margin-top: 15px;
+    }
 }
 .filters-btn{
-    margin: 15px auto;
+    margin: 15px auto 0;
     display: flex;
     justify-content: space-between;
-}
-.branches{
-    margin-top: 20px;
 }

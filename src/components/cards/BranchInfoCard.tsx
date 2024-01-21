@@ -1,14 +1,17 @@
 import Image from "next/image";
 import styles from './cards.module.scss'
+import { isEmpty } from "@/helper";
 
-const BranchInfoCard = () => {
+const BranchInfoCard = (props:any) => {
+  const{branchInfo} = props;
     return ( 
         <div className={styles['branch-card']}>
             <div className={styles['branch-img']}>
             <Image
                 className={styles['img']}
-                src="icons/img-branch-example.svg"
-                alt="branch img"
+                src={!isEmpty(branchInfo.slideLIst) ? branchInfo.slideLIst[0] : !isEmpty(branchInfo.logo) ? branchInfo.logo : "icons/img-branch-example.svg"}
+                // src={ "icons/img-branch-example.svg"}
+                alt={branchInfo.name}
                 fill={true}
                 priority
               />
@@ -28,7 +31,7 @@ const BranchInfoCard = () => {
           
             <div className={styles['branch-title']}>
             <h2>
-                شعبه ستاری کوروش مال
+            {branchInfo?.name}
             </h2>
             </div>
             <div className={styles['branch-address']}>
@@ -39,13 +42,13 @@ const BranchInfoCard = () => {
                 width={16}
                 height={16}
               />
-             <p>
-             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
-             </p>
+             <p>{branchInfo.address}</p>
             </div>
+            <a href={branchInfo.website} target="_blank">
             <button className={styles['card-btn']}>
            مشاهده سایت شعبه
             </button>
+            </a>
         </div>
      );
 }

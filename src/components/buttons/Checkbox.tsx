@@ -1,12 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './buttons.module.scss'
 
 const Checkbox = (props:any) => {
-    const{label,id} = props;
-    const[checked,setChecked] = useState(false)
+    const{label,id,choosedFilters,setChoosedFilters} = props;
+    const[checked,setChecked] = useState(false);
 
+    useEffect(() => {
+    if(checked){
+        setChoosedFilters([...choosedFilters,label])
+    }else{
+        const items = choosedFilters.filter((item:any) => item !== label)
+        setChoosedFilters(items)
+    }
+    },[checked])
+   
     return ( 
-        <div className={styles["checkbox-wrapper-1"]}>
+    <div className={styles["checkbox-wrapper-1"]}>
   <input
    id={`checkbox-${id}`}
     className={styles["substituted"]}
