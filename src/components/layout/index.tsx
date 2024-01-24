@@ -1,11 +1,9 @@
 import Navbar from './navbar'
 import Footer from './footer'
-import { ReactNode } from 'react'
 import styles from './layout.module.scss'
+import { Props } from '@/types'
 
-interface Props {
-  children?: ReactNode
-}
+
 
 export default function Layout({ children } : Props) {
 

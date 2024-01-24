@@ -7,3 +7,13 @@
 @include font-face('YekanBakh', 'Yekan/Yekan\ Bakh\ EN\ 05\ Medium', normal, 500);
 @include font-face('YekanBakh', 'Yekan/Yekan\ Bakh\ EN\ 06\ Bold', normal, 600);
 @include font-face('YekanBakh', 'Yekan/Yekan\ Bakh\ EN\ 07\ Heavy', normal, 700);
+
+@include uppermobile() {
+    html{
+        background-color: #000;
+    }
+html,body{
+display: flex;
+justify-content: center;
+}
+}

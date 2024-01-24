@@ -18,7 +18,10 @@ const FilterList = (props:any) => {
     }
 
     const handleFilterData = () => {
-    const newSubMerchantList =  holdingInfo.subMerchantList.filter((item:any) => choosedFilters.some((i) => item.tag === i))
+        // {tag:item.tag,subMerchantList:item.subMerchantList}
+    // const newSubMerchantList =  holdingInfo.subMerchantTagVOS.map((item:any) => item.subMerchantList.filter((item:any) => choosedFilters.some((i) => item.tag === i))) 
+     const newSubMerchantList =  holdingInfo.subMerchantTagVOS.filter((item:any) => (choosedFilters.some((i) => item.tag === i)))
+    console.log(newSubMerchantList);
     setSubMerchants(newSubMerchantList)
     handleCloseFilter()
     // console.log(newSubMerchantList);

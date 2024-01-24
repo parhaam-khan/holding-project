@@ -1,29 +1,85 @@
-.search-textFields{
-    position: relative;
-    .search-icon{
-        position: absolute;
-        right: 5%;
-        top: 25%;
+.search-textFields {
+  position: relative;
+  .search-icon {
+    position: absolute;
+    right: 5%;
+    top: 25%;
+  }
+  .search-input {
+    width: 100%;
+    display: block;
+    padding: 10px 38px 10px 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    &::placeholder {
+      position: absolute;
+      font-family: YekanBakh;
+      color: #344054;
+      font-size: 12px;
+      font-weight: 600;
+      right: 12%;
     }
-    .search-input{
-        width: 100%;
-        display: block;
-        padding: 10px 35px 10px 10px;
-        border-radius: 10px;
-        -webkit-border-radius: 10px;
-        -moz-border-radius: 10px;
-        -ms-border-radius: 10px;
-        -o-border-radius: 10px;
-        &::placeholder{
-            position: absolute;
-            font-family: YekanBakh;
-            color: #344054;
-            font-size: 12px;
-            font-weight: 600;
-            right: 12%;
-        }
-        &:focus{
-            outline: none;
-        }
+    &:focus {
+      outline: none;
+    }
+  }
 }
+
+.text-field-icon {
+  position: relative;
+//   margin: 10px 2.5px 20px 2.5px;
+  .icon {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    &.end-icon{
+        right: auto;
+        left: 10px;
+    }
+  }
+  input {
+    width: 100%;
+    direction: rtl;
+    display: inline-block;
+    border: 1px solid #eaecf0;
+    color: #444;
+    background-color: #fcfcfd;
+    padding: 15px 45px 15px 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+  }
+
+  input:focus {
+    background-color: #FCFCFD;
+    outline: none;
+  }
+  label {
+    color: #344054;
+    font-family: 'YekanBakh';
+    font-size: 12px;
+    font-weight: 600;
+    position: absolute;
+    pointer-events: none;
+    right: 45px;
+    top: 15px;
+    transition: 0.2s;
+  }
+  input:focus ~ label , .input-full {
+    top: -8px;
+    right: 35px;
+    font-size: small;
+    color: #344054;
+    background-color: #FCFCFD;
+    padding: 0 5px 0 5px;
+  }
+  input:-internal-autofill-selected{
+    background-color: #FCFCFD !important;
+
+  }
 }

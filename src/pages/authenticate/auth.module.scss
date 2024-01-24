@@ -1,0 +1,75 @@
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .title{
+    margin: 20px 0 10px;
+    p{
+        font-size: 20px;
+        font-weight: 700;
+    }
+    }
+    .sub-title{
+        display: flex;
+        font-size: 14px;
+        font-weight: 600;
+        margin-top: 20px;
+        .phoneNum{
+            color: #49D4AE;
+            margin: 0 3px;
+        }
+    }
+    .inputs{
+        width: 90%;
+        .text-field{
+            margin: 10px 2.5px 20px 2.5px;
+            .fotget-pass-text{
+                text-align: left;
+                margin-top: 5px;
+                color: #2E73CE;
+                font-size: 12px;
+            }
+        }
+    }
+    .text-field-otp{
+        input{
+            width: 100%;
+            padding: 10px;
+        }
+        input:focus{
+            outline: none;
+        }
+    }
+    .btn{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        button{
+            width: 90%;
+            padding: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            background-color: #2E73CE;
+            color: #fff;
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -o-border-radius: 10px;
+}
+    }
+    .register-text{
+        margin-top: 20px;
+        display: flex;
+        p{
+            font-size: 14px;
+            font-weight: 600;
+        }
+        :nth-child(2){
+            color: #49D4AE;
+            margin-right: 5px;
+        }
+    }
+}
+
+

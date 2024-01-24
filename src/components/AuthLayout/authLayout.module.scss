@@ -1,0 +1,45 @@
+@import "@/styles/mixins";
+  
+  @include uppermobile() {
+    .auth-layout{
+    width: 480px;
+    }
+    }
+
+.auth-layout{
+    position: relative;
+    height: 100vh;
+    .holding-name{
+        height: 50%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        background-color: #2e2e2e;
+        .img{
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+}
+.name{
+    color: #F9FAFB;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 10px;
+    }
+    }
+    .login-register-fields{
+        position: absolute;
+        top: 49%;
+        height: 51%;
+        width: 100%;
+        background-color: #FCFCFD;
+        border-radius: 10px 10px 0 0;
+        -webkit-border-radius: 10px 10px 0 0;
+        -moz-border-radius: 10px 10px 0 0;
+        -ms-border-radius: 10px 10px 0 0;
+        -o-border-radius: 10px 10px 0 0;
+}
+}

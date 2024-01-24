@@ -3,7 +3,17 @@
     margin: 0 auto;
     padding-bottom: 100px;
     .branches{
+        display: flex;
+        flex-direction: column;
         margin-top: 15px;
+
+        &.horizental{
+            flex-direction: row;
+            overflow-x: scroll;
+            overflow-y: hidden;
+            white-space: nowrap;
+            scroll-snap-type: x mandatory;
+        }
     }
 }
 .filters-btn{

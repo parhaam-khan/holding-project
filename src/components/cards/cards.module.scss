@@ -10,9 +10,15 @@
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
+  &.card-horizental{
+    margin-left: 10px;
+  }
   .branch-img {
     position: relative;
     height: 136px;
+    &.img-horizental{
+      width: 280px;
+    }
     .img {
       object-fit: contain;
       border-radius: 5px;
@@ -20,6 +26,7 @@
       -moz-border-radius: 5px;
       -ms-border-radius: 5px;
       -o-border-radius: 5px;
+   
     }
     .rate {
       width: 60px;
@@ -79,4 +86,5 @@
     -ms-border-radius: 6px;
     -o-border-radius: 6px;
 }
+
 }

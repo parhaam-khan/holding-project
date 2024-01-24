@@ -1,12 +1,13 @@
 import Image from "next/image";
 import styles from './cards.module.scss'
 import { isEmpty } from "@/helper";
+import cs from 'classnames';
 
 const BranchInfoCard = (props:any) => {
-  const{branchInfo} = props;
+  const{branchInfo,tagList} = props;
     return ( 
-        <div className={styles['branch-card']}>
-            <div className={styles['branch-img']}>
+        <div className={cs(styles['branch-card'],tagList.length > 1 && styles['card-horizental'])}>
+            <div className={cs(styles['branch-img'],tagList.length > 1 && styles['img-horizental'])}>
             <Image
                 className={styles['img']}
                 src={!isEmpty(branchInfo.slideLIst) ? branchInfo.slideLIst[0] : !isEmpty(branchInfo.logo) ? branchInfo.logo : "icons/img-branch-example.svg"}

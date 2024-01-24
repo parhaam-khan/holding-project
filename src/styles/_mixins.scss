@@ -18,7 +18,7 @@ $breakpoint-desktop-max: 1200px;
 $breakpoint-upperdesktop-min: 1201px;
 
 //uppermobile
-$breakpoint-uppermobile-min: 320px;
+$breakpoint-uppermobile-min: 480px;
 
 
 @mixin tablet() {
@@ -62,6 +62,6 @@ $breakpoint-uppermobile-min: 320px;
         src: url('../../public/fonts/#{$filename}.eot');
         src: url('../../public/fonts/#{$filename}.woff') format("woff");
         src: url('../../public/fonts/#{$filename}.ttf') format("truetype");
-        font-display: swap;
+         font-display: swap;
     }
   }

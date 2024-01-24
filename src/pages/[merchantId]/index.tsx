@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '@/styles/Home.module.scss'
 import SearchTextfield from '@/components/textFields/SearchTextfield'
 import FilterBtn from '@/components/buttons/FilterBtn'
@@ -8,18 +7,20 @@ import { useEffect, useState } from 'react'
 import FilterList from '@/components/filterListDialog/FilterList'
 import { API } from '@/services/request-http'
 import { isEmpty } from '@/helper'
+import cs from 'classnames'
+import Layout from '@/components/layout'
 
 export default function Home(props:any) {
     const{data} = props;
     const[holdingInfo,setHoldingInfo] = useState(data.result ?? {});
-    const[subMerchants,setSubMerchants] = useState(data.result.subMerchantList ?? []);
+    const[subMerchants,setSubMerchants] = useState(data.result.subMerchantTagVOS ?? []);
  const[showFilterList,setShowFilterList] = useState({
     show:false,
     type:''
  });
 //  console.log(showFilterList);
 // console.log(props);
-// console.log(holdingInfo);
+ console.log(holdingInfo);
 
 useEffect(() => {
     localStorage.setItem('holdingInfo', JSON.stringify(holdingInfo));
@@ -36,8 +37,12 @@ useEffect(() => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href={holdingInfo.logo} />
       </Head>
+      <Layout>
       <main className={styles.main}>
-       <SearchTextfield/>
+       <SearchTextfield
+       holdingInfo={holdingInfo}
+        setSubMerchants={setSubMerchants}
+         />
        {(!isEmpty(holdingInfo.tagList) || !isEmpty(holdingInfo.cityList)) &&
        <div className={styles['filters-btn']}>
        {!isEmpty(holdingInfo.tagList) &&
@@ -49,13 +54,24 @@ useEffect(() => {
       <p>همه شهرها</p>
        </FilterBtn>}
        </div>}
-       {!isEmpty(holdingInfo.subMerchantList) &&
-      <div className={styles.branches}>
-        {subMerchants?.map((item:any,index:number) => (
-            <BranchInfoCard key={index} branchInfo={item}/>
+       {!isEmpty(subMerchants) &&
+      <div className={cs(styles.branches,holdingInfo.tagList.length > 1 && styles.horizental)}>
+        {subMerchants?.map((item:any) => (
+            item.subMerchantList.map((branch:any,index:number) => (
+                <>
+                <BranchInfoCard tagList={holdingInfo.tagList} key={index} branchInfo={branch}/>
+                {/* <BranchInfoCard tagList={holdingInfo.tagList} key={index + 1} branchInfo={item}/>
+                <BranchInfoCard tagList={holdingInfo.tagList} key={index + 2} branchInfo={item}/>
+                <BranchInfoCard tagList={holdingInfo.tagList} key={index + 3} branchInfo={item}/>
+                <BranchInfoCard tagList={holdingInfo.tagList} key={index + 3} branchInfo={item}/>
+                <BranchInfoCard tagList={holdingInfo.tagList} key={index + 3} branchInfo={item}/> */}
+                </>
+            ))
+          
         ))}
        </div>}
       </main>
+      </Layout>
       {showFilterList.show && 
       <FilterList
        listItem={showFilterList.type === 'cat' ? holdingInfo.tagList : holdingInfo.cityList}
@@ -69,7 +85,7 @@ useEffect(() => {
   )
 }
 export const getServerSideProps = (async(context: any) => {
-     try{
+try{
 const res:any = await API(`${context.query.merchantId}/holding`, "get")
   return { props: {data:res.data,contextQuery:context.query}}
 } catch (error: any) {

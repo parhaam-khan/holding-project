@@ -4,9 +4,11 @@ import cs from 'classnames'
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import useAuth from '@/hooks/useAuth';
 
 const Footer = () => {
     const router = useRouter();
+    const{isLogin} = useAuth();
 const[active,setActive] = useState('homeActive');
 const[merchantId,setMerchantId] = useState('');
 
@@ -61,7 +63,7 @@ if(router.pathname === '/[merchantId]'){
            </Link>
            </div>
            <div className={styles.menuItem}>
-           <Link href="/profile">
+           <Link href={isLogin() ? "/profile" : "/authenticate/login"}>
            <div className={cs(styles['extra-border'],active === 'profileActive' && styles[`${active}`])}></div>
            <button className={styles['footer-btn']}>
            <Image

@@ -1,6 +1,12 @@
 @import "@/styles/mixins";
-
-@include mobile() {
+  
+  @include uppermobile() {
+    .main{
+    width: 480px;
+    }
+    }
+  
+  
   .navbar {
     margin-bottom: 15px;
     .holding-name-logo-notifs {
@@ -78,4 +84,3 @@
         }
     }
   }
-}
