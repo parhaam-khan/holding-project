@@ -1,8 +1,8 @@
 @import "@/styles/mixins";
   
   @include uppermobile() {
-    .main{
-    width: 480px;
+    .main,.footer{
+    width: 480px !important;
     }
     }
   

@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  basePath: '/holding',
+  basePath: '/h',
   images: {
     domains: ['mupra.ir','aribaceramic.ir'],
   },
