@@ -12,8 +12,8 @@ import Layout from '@/components/layout'
 
 export default function Home(props:any) {
     const{data} = props;
-    const[holdingInfo,setHoldingInfo] = useState(data.result ?? {});
-    const[subMerchants,setSubMerchants] = useState(data.result.subMerchantTagVOS ?? []);
+    const[holdingInfo,setHoldingInfo] = useState(data?.result ?? {});
+    const[subMerchants,setSubMerchants] = useState(data?.result?.subMerchantTagVOS ?? []);
  const[showFilterList,setShowFilterList] = useState({
     show:false,
     type:''

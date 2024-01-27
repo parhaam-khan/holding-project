@@ -11,8 +11,24 @@ const SearchTextfield = (props:any) => {
   const handleOnChange = (e:any) => {
     const text = e.target.value
     setInputText(text)
-    const filteredData = holdingInfo.subMerchantList.filter((item:any) => item.name.toLowerCase().includes(text.toLowerCase()) || item.address.toLowerCase().includes(text.toLowerCase()))
-   setSubMerchants(filteredData)
+    // const filteredData = holdingInfo.subMerchantList.filter((item:any) => item.name.toLowerCase().includes(text.toLowerCase()) || item.address.toLowerCase().includes(text.toLowerCase()))
+     const filteredData = holdingInfo.subMerchantTagVOS.map((item:any) => {
+      let arry:[] = []
+    const newData = item.subMerchantList.filter((branch:any) => {
+        if(branch.name.toLowerCase().includes(text.toLowerCase()) || branch.address.toLowerCase().includes(text.toLowerCase())){
+          // console.log('inside condition');
+          arry.push(branch)
+        } 
+        // console.log(obj)
+        return arry
+      })
+      // console.log(newData);
+      return {tag:item.tag,subMerchantList:[...arry]}
+      // return newData
+    })
+     console.log(filteredData);
+
+    setSubMerchants(filteredData)
   }
     return ( 
         <div className={styles['search-textFields']}>
