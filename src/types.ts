@@ -7,6 +7,7 @@ export interface DataHeaders {
     'X-VIEWNAME'?: string;
   }
 
-  export interface Props {
-    children?: ReactNode
+  export interface LayoutProps {
+    children?: ReactNode,
+    holdingInfo?: object
   }

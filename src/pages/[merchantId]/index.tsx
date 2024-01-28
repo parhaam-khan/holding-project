@@ -11,6 +11,16 @@ import cs from 'classnames'
 import Layout from '@/components/layout'
 
 export default function Home(props:any) {
+  // {subMerchants?.map((item:any) => {
+  //   <span>{item.tag}</span>
+  //   return  item.subMerchantList.map((branch:any,index:number) => (
+  //         <>
+  //         <BranchInfoCard tagList={holdingInfo.tagList} key={index} branchInfo={branch}/>
+  //         </>
+  //     ))
+    
+  //       }
+  // )}
     const{data} = props;
     const[holdingInfo,setHoldingInfo] = useState(data?.result ?? {});
     const[subMerchants,setSubMerchants] = useState(data?.result?.subMerchantTagVOS ?? []);
@@ -37,7 +47,7 @@ useEffect(() => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href={holdingInfo.logo} />
       </Head>
-      <Layout>
+      <Layout holdingInfo={holdingInfo}>
       <main className={styles.main}>
        <SearchTextfield
        holdingInfo={holdingInfo}
@@ -55,21 +65,23 @@ useEffect(() => {
        </FilterBtn>}
        </div>}
        {!isEmpty(subMerchants) &&
-      <div className={cs(styles.branches,holdingInfo.tagList.length > 1 && styles.horizental)}>
-        {subMerchants?.map((item:any) => (
-            item.subMerchantList.map((branch:any,index:number) => (
+        subMerchants?.map((item:any,idx:number) => (
+          <div className={styles['branch-section']} key={idx}>
+            <div className={styles['header-horizental']}>
+          <span className={styles['category-name']}>{item.tag}</span>
+          <span className={styles['show-all-text']}>مشاهده همه</span>
+            </div>
+          <div className={cs(styles.branches,subMerchants && styles.horizental)}>
+            {item.subMerchantList.map((branch:any,index:number) => (
                 <>
                 <BranchInfoCard tagList={holdingInfo.tagList} key={index} branchInfo={branch}/>
-                {/* <BranchInfoCard tagList={holdingInfo.tagList} key={index + 1} branchInfo={item}/>
-                <BranchInfoCard tagList={holdingInfo.tagList} key={index + 2} branchInfo={item}/>
-                <BranchInfoCard tagList={holdingInfo.tagList} key={index + 3} branchInfo={item}/>
-                <BranchInfoCard tagList={holdingInfo.tagList} key={index + 3} branchInfo={item}/>
-                <BranchInfoCard tagList={holdingInfo.tagList} key={index + 3} branchInfo={item}/> */}
                 </>
-            ))
-          
-        ))}
-       </div>}
+            ))}
+             </div>
+             </div>
+        )
+        )}
+       
       </main>
       </Layout>
       {showFilterList.show && 

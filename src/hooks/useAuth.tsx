@@ -5,7 +5,7 @@ const useAuth = () => {
 
 const isLogin = () => {
     if(typeof window !== 'undefined'){
-        const getToken = JSON.parse(localStorage.getItem('token') || '{}')
+        const getToken = localStorage.getItem('token') || '{}'
         console.log(getToken);
         if(!isEmpty(getToken)){
             return true

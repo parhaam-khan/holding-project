@@ -5,11 +5,11 @@ import { Props } from '@/types'
 
 
 
-export default function Layout({ children } : Props) {
+export default function Layout({ children,holdingInfo } : Props) {
 
   return (
     <>
-      <Navbar />
+      <Navbar holdingInfo={holdingInfo}/>
       <main className={styles.main}>{children}</main>
       <Footer />
     </>

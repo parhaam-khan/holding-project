@@ -2,19 +2,36 @@
     width: 90%;
     margin: 0 auto;
     padding-bottom: 100px;
-    .branches{
-        display: flex;
-        flex-direction: column;
+    .branch-section{
         margin-top: 15px;
-
-        &.horizental{
-            flex-direction: row;
-            overflow-x: scroll;
-            overflow-y: hidden;
-            white-space: nowrap;
-            scroll-snap-type: x mandatory;
+        .header-horizental{
+            display: flex;
+            justify-content: space-between;
+            .category-name{
+                font-weight: 700;
+                font-size: 14px;
+                }
+                .show-all-text{
+                    font-size: 12px;
+                    font-weight: 600;
+                    color: #2E73CE;
+                }
+        }
+       
+        .branches{
+            display: flex;
+            flex-direction: column;
+    
+            &.horizental{
+                flex-direction: row;
+                overflow-x: scroll;
+                overflow-y: hidden;
+                white-space: nowrap;
+                scroll-snap-type: x mandatory;
+            }
         }
     }
+  
 }
 .filters-btn{
     margin: 15px auto 0;

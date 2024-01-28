@@ -2,14 +2,15 @@ import Image from 'next/image';
 import styles from './layout.module.scss';
 import { useEffect, useState } from 'react';
 
-const Navbar = () => {
-    const[holdingInfo,setHoldingInfo] = useState<{[key: string]: any}>({});
+const Navbar = (props:any) => {
+    const{holdingInfo} = props;
+    // const[holdingInfo,setHoldingInfo] = useState<{[key: string]: any}>({});
 
 
-    useEffect(() => {
-        const data = JSON.parse(localStorage.getItem('holdingInfo')  || '{}') 
-        setHoldingInfo(data)
-    },[])
+    // useEffect(() => {
+    //     const data = JSON.parse(localStorage.getItem('holdingInfo')  || '{}') 
+    //     setHoldingInfo(data)
+    // },[])
 
     return ( 
         <div className={styles.navbar}>

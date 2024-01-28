@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import styles from './authLayout.module.scss'
 import Image from 'next/image';
-import { Props } from '@/types';
 import Head from 'next/head';
+import { LayoutProps } from '@/types';
 
 
-const AuthLayout = ({ children } : Props) => {
+const AuthLayout = ({ children } : LayoutProps) => {
     const[holdingInfo,setHoldingInfo] = useState<{[key: string]: any}>({});
 
     useEffect(() => {
