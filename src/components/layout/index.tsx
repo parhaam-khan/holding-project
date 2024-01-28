@@ -1,11 +1,11 @@
 import Navbar from './navbar'
 import Footer from './footer'
 import styles from './layout.module.scss'
-import { Props } from '@/types'
+import { LayoutProps } from '@/types'
 
 
 
-export default function Layout({ children,holdingInfo } : Props) {
+export default function Layout({ children,holdingInfo } : LayoutProps) {
 
   return (
     <>
