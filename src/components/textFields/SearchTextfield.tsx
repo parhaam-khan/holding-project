@@ -13,7 +13,7 @@ const SearchTextfield = (props:any) => {
     setInputText(text)
     // const filteredData = holdingInfo.subMerchantList.filter((item:any) => item.name.toLowerCase().includes(text.toLowerCase()) || item.address.toLowerCase().includes(text.toLowerCase()))
      const filteredData = holdingInfo.subMerchantTagVOS.map((item:any) => {
-      let arry:[] = []
+      let arry:any[] = []
     const newData = item.subMerchantList.filter((branch:any) => {
         if(branch.name.toLowerCase().includes(text.toLowerCase()) || branch.address.toLowerCase().includes(text.toLowerCase())){
           // console.log('inside condition');
