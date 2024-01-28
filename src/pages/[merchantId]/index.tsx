@@ -71,7 +71,7 @@ useEffect(() => {
           <span className={styles['category-name']}>{item.tag}</span>
           <span className={styles['show-all-text']}>مشاهده همه</span>
             </div>
-          <div className={cs(styles.branches,subMerchants && styles.horizental)}>
+          <div className={cs(styles.branches,holdingInfo.tagList.length > 1 && styles.horizental)}>
             {item.subMerchantList.map((branch:any,index:number) => (
                 <>
                 <BranchInfoCard tagList={holdingInfo.tagList} key={index} branchInfo={branch}/>

@@ -6,6 +6,7 @@ import Checkbox from '../buttons/Checkbox';
 const FilterList = (props:any) => {
     const{setShowFilterList,listItem,holdingInfo,showFilterList,setSubMerchants} = props;
     const[choosedFilters,setChoosedFilters] = useState([])
+    console.log(choosedFilters);
     //  console.log(choosedFilters);
  const overlayRef = useRef<HTMLInputElement>(null)
 
@@ -18,10 +19,8 @@ const FilterList = (props:any) => {
     }
 
     const handleFilterData = () => {
-        // {tag:item.tag,subMerchantList:item.subMerchantList}
-    // const newSubMerchantList =  holdingInfo.subMerchantTagVOS.map((item:any) => item.subMerchantList.filter((item:any) => choosedFilters.some((i) => item.tag === i))) 
-     const newSubMerchantList =  holdingInfo.subMerchantTagVOS.filter((item:any) => (choosedFilters.some((i) => item.tag === i)))
-    console.log(newSubMerchantList);
+     const newSubMerchantList =  holdingInfo.subMerchantTagVOS.filter((item:any) => (choosedFilters.length > 0 ? choosedFilters.some((i) => item.tag === i) : item))
+    // console.log(newSubMerchantList);
     setSubMerchants(newSubMerchantList)
     handleCloseFilter()
     // console.log(newSubMerchantList);

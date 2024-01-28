@@ -2,7 +2,7 @@
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 321px;
+    // height: 321px;
     background-color: #fff;
     z-index: 2;
     border-radius: 15px 15px 0 0;
@@ -42,6 +42,7 @@
     .options-list{
         display: flex;
         flex-direction: column;
+        height: 300px;
     }
     .submit-filter-btn{
         width: 100%;
