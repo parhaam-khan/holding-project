@@ -1,3 +1,5 @@
+@import "@/styles/mixins";
+
 .main{
     width: 90%;
     margin: 0 auto;
@@ -37,4 +39,24 @@
     margin: 15px auto 0;
     display: flex;
     justify-content: space-between;
+}
+.holding-not-exist{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    direction: ltr;
+    p{
+        text-align: center;
+        font-weight: 700;
+        color: #344054;
+    }
+}
+@include uppermobile() {
+    .holding-not-exist{
+    position: relative;
+    height: 100vh;
+    top: 0;
+    display: flex;
+    align-items: center;
+    }
 }

@@ -8,6 +8,7 @@
   
   
   .navbar {
+    position: relative;
     margin-bottom: 15px;
     .holding-name-logo-notifs {
     height: 56px;
@@ -34,9 +35,17 @@
             color: #0C111D;
           }
       }
+      .divider{
+        width: 1px;
+        position: absolute;
+        height: 100%;
+        right: 85%;
+        background-color: #ececec;
+      }
       .notifs{
         display: flex;
         align-items: center;
+        margin-inline-end: 1%;
       }
     
     }

@@ -1,6 +1,5 @@
 import AuthLayout from "@/components/AuthLayout";
-import styles from './auth.module.scss'
-import styles2 from '@/components/textFields//textFields.module.scss'
+import styles from '@/styles/auth.module.scss'
 import Image from "next/image";
 import TextFieldIcon from "@/components/textFields/TextFieldIcon";
 import { useEffect, useState } from "react";
@@ -13,7 +12,7 @@ import Link from "next/link";
 
 const Register = () => {
     const router = useRouter();
-    const{isLogin} = useAuth();
+    // const{isLogin} = useAuth();
     const[state,setState] = useState<{
         msisdn:string,
     }>({
@@ -21,11 +20,11 @@ const Register = () => {
     })
     const{msisdn} = state;
 
-    useEffect(() => {
-        if(isLogin()){
-            router.replace(`/profile`)
-        }
-    },[])
+    // useEffect(() => {
+    //     if(isLogin()){
+    //         router.replace(`/profile`)
+    //     }
+    // },[])
 
     const handleOnChange = (e:any) => {
         setState({...state,[e.target.name]: e.target.value})
@@ -64,7 +63,7 @@ const Register = () => {
             <TextFieldIcon
              inputName="msisdn"
              value={msisdn}
-             imgSrc="../icons/phone-icon.svg"
+             imgSrc="../../icons/phone-icon.svg"
              imgAlt="phone icon"
              label='شماره همراه'
              type="tel"

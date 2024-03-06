@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Checkbox from '../buttons/Checkbox';
 
 const FilterList = (props:any) => {
-    const{setShowFilterList,listItem,holdingInfo,showFilterList,setSubMerchants} = props;
+    const{type,setShowFilterList,listItem,mainInfo,showFilterList,setData} = props;
     const[choosedFilters,setChoosedFilters] = useState([])
     console.log(choosedFilters);
     //  console.log(choosedFilters);
@@ -19,9 +19,26 @@ const FilterList = (props:any) => {
     }
 
     const handleFilterData = () => {
-     const newSubMerchantList =  holdingInfo.subMerchantTagVOS.filter((item:any) => (choosedFilters.length > 0 ? choosedFilters.some((i) => item.tag === i) : item))
+        if(type === 'city'){
+            let newList:object[] = []
+            mainInfo.subMerchantTagVOS.map((item:any) => {
+                const newMerchantList = item.subMerchantList.filter((value:any) => choosedFilters.length > 0 ? choosedFilters.some((i:any) => value.city === i ) : item)
+                newMerchantList.length > 0 && newMerchantList.map((i:any) => newList.push(i))
+            })
+            if(newList.length > 0){
+            const newSubMerchants = mainInfo.subMerchantTagVOS.filter((item:any) => {
+              return newList.some((i:any) => item.tag === i.tag)
+            })
+            setData(newSubMerchants)
+            // console.log(newSubMerchants);
+            }
+            // console.log(newList);
+
+        }else if(type === 'cat'){
+            const newSubMerchantList =  mainInfo.subMerchantTagVOS.filter((item:any) => (choosedFilters.length > 0 ? choosedFilters.some((i) => item.tag === i) : item))
+            setData(newSubMerchantList)
+        }
     // console.log(newSubMerchantList);
-    setSubMerchants(newSubMerchantList)
     handleCloseFilter()
     // console.log(newSubMerchantList);
     }
@@ -53,7 +70,7 @@ const FilterList = (props:any) => {
         </button>
         </div>
         <div className={styles['options-list']}>
-            {listItem.map((item:any,index:number) => (
+            {listItem?.map((item:any,index:number) => (
             <div key={index}>
             <Checkbox
             choosedFilters={choosedFilters}

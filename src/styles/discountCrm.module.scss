@@ -1,0 +1,106 @@
+.discount-crm{
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 100px;
+  
+    .main-title {
+      display: flex;
+      position: relative;
+      .title {
+        position: absolute;
+        right: 35%;
+        font-size: 16px;
+        font-weight: 700;
+        color: #344054;
+      }
+    }
+    .back {
+      display: flex;
+      align-items: center;
+      p {
+        font-size: 10px;
+        font-weight: 600;
+        color: #344054;
+        line-height: 13px;
+      }
+    }
+    .discount-crm-cards {
+        margin-top: 20px;
+        .card {
+          position: relative;
+          height: 124px;
+          padding: 10px;
+          background-color: #fcfcfd;
+          border-radius: 5px;
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+          -ms-border-radius: 5px;
+          -o-border-radius: 5px;
+          .img-and-name {
+            display: flex;
+            .main-title-card {
+              margin-inline-start: 10px;
+              .card-title {
+                font-size: 14px;
+                font-weight: 600;
+                color: #344054;
+              }
+              .desc {
+                display: flex;
+                align-items: center;
+                p {
+                  font-family: "iranyekan";
+                  margin-inline-start: 5px;
+                  color: #667085;
+                  font-size: 12px;
+                  font-weight: 600;
+                }
+              }
+            }
+          }
+          .btns {
+            width: 95%;
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            bottom: 7px;
+            .copy-code-btn {
+              width: 38%;
+              padding: 3px 5px;
+              font-size: 14px;
+              font-weight: 600;
+              color: #49D4AE;
+              border-radius: 5px;
+              -webkit-border-radius: 5px;
+              -moz-border-radius: 5px;
+              -ms-border-radius: 5px;
+              -o-border-radius: 5px;
+              background-color: #fcfcfd;
+              border: 1px solid #49D4AE;
+            }
+            .code-btn{
+                width: 60%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 3px 5px;
+                font-size: 14px;
+                font-weight: 700;
+                color: #475467;
+                border-radius: 5px;
+                -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
+                -ms-border-radius: 5px;
+                -o-border-radius: 5px;
+                background-color: #FCFCFD;
+                border: 3px dotted #EAECF0;
+                p{
+                    font-family: 'iranyekan';
+                    margin-inline-start: 5px;
+                }
+                
+              }
+          }
+        }
+      }
+}

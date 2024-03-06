@@ -40,8 +40,39 @@ justify-content: space-around;
 width: 100%;
 }
 
+@font-face {
+  font-family: "iranyekan";
+  src: url("../../public/fonts/iranyekan-Fanum/iranyekanwebregular(fanum).eot");
+  src: url("../../public/fonts/iranyekan-Fanum/iranyekanwebregular(fanum).eot") format("embedded-opentype"),
+    url("../../public/fonts/iranyekan-Fanum/iranyekanwebregular(fanum).woff2") format("woff2"),
+    url("../../public/fonts/iranyekan-Fanum/iranyekanwebregular(fanum).woff") format("woff"),
+    url("../../public/fonts/iranyekan-Fanum/iranyekanwebregular(fanum).ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "iranyekan";
+  src: url("../../public/fonts/iranyekan-Fanum/iranyekanwebbold(fanum).eot");
+  src: url("../../public/fonts/iranyekan-Fanum/iranyekanwebbold(fanum).eot") format("embedded-opentype"),
+    url("../../public/fonts/iranyekan-Fanum/iranyekanwebbold(fanum).woff2") format("woff2"),
+    url("../../public/fonts/iranyekan-Fanum/iranyekanwebbold(fanum).woff") format("woff"),
+    url("../../public/fonts/iranyekan-Fanum/iranyekanwebbold(fanum).ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
 
-/* @font-face {
+.darkBG {
+  background-color: rgba(0, 0, 0, 0.2);
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+ /* @font-face {
   font-family: YekanBakh;
   font-style: normal;
   font-weight: 400;
@@ -50,86 +81,6 @@ width: 100%;
       format('woff'),
     url('../../public/fonts/Yekan/Yekan\ Bakh\ EN\ 01\ Hairline.ttf')
       format('truetype');
-  font-display: swap;
-} 
-
-@font-face {
-  font-family: YekanBakh;
-  font-style: normal;
-  font-weight: 200;
-  src: url('../../public/fonts/Yekan/Yekan\ Bakh\ EN\ 02\ Thin.eot');
-  src: url('../../public/fonts/Yekan/Yekan\ Bakh\ EN\ 02\ Thin.woff') format('woff'),
-    url('../../public/fonts/Yekan/Yekan\ Bakh\ EN\ 02\ Thin.ttf') format('truetype');
-  font-display: swap;
-}
-
- @font-face {
-  font-family: YekanBakh;
-  font-style: normal;
-  font-weight: 300;
-  src: url('../../public/fonts/Yekan/Yekan\ Bakh\ EN\ 03\ Light.eot');
-  src: url('../../public/fonts/Yekan/Yekan\ Bakh\ EN\ 03\ Light.woff')
-      format('woff'),
-    url('../../public/fonts/Yekan/Yekan\ Bakh\ EN\ 03\ Light.ttf')
-      format('truetype');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: YekanBakh;
-  font-style: normal;
-  font-weight: 400;
-  src: url('../../public/fonts/Yekan/Yekan\ Bakh\ EN\ 04\ Regular.eot');
-  src: url('../../public/fonts/Yekan/Yekan\ Bakh\ EN\ 04\ Regular.woff')
-      format('woff'),
-    url('../../public/fonts/Yekan/Yekan\ Bakh\ EN\ 04\ Regular.ttf')
-      format('truetype');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: YekanBakh;
-  font-style: normal;
-  font-weight: 500;
-  src: url('../../public/fonts/Yekan/Yekan\ Bakh\ EN\ 05\ Medium.eot');
-  src: url('../../public/fonts/Yekan/Yekan\ Bakh\ EN\ 05\ Medium.woff?v=970802')
-      format('woff'),
-    url('../../public/fonts/Yekan/Yekan\ Bakh\ EN\ 05\ Medium.ttf?v=970802')
-      format('truetype');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: YekanBakh;
-  font-style: normal;
-  font-weight: 600;
-  src: url('../../public/fonts/Yekan//Yekan\ Bakh\ EN\ 06\ Bold.eot');
-  src: url('../../public/fonts/Yekan//Yekan\ Bakh\ EN\ 06\ Bold.woff')
-      format('woff'),
-    url('../../public/fonts/Yekan//Yekan\ Bakh\ EN\ 06\ Bold.ttf')
-      format('truetype');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: YekanBakh;
-  font-style: normal;
-  font-weight: 700;
-  src: url('../../public/fonts/Yekan/Yekan\ Bakh\ EN\ 07\ Heavy.eot');
-  src: url('../../public/fonts/Yekan/Yekan\ Bakh\ EN\ 07\ Heavy.woff')
-      format('woff'),
-    url('../../public/fonts/Yekan/Yekan\ Bakh\ EN\ 07\ Heavy.ttf')
-      format('truetype');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: YekanBakh;
-  font-style: normal;
-  font-weight: 800;
-  src: url('../../public/fonts/Yekan/Yekan\ Bakh\ EN\ 08\ Fat.eot');
-  src: url('../../public/fonts/Yekan/Yekan\ Bakh\ EN\ 08\ Fat.woff') format('woff'),
-    url('../../public/fonts/Yekan/Yekan\ Bakh\ EN\ 08\ Fat.ttf') format('truetype');
   font-display: swap;
 }  */
 

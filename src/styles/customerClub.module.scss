@@ -1,0 +1,335 @@
+.customer-club {
+  width: 90%;
+  margin: 0 auto;
+  padding-bottom: 100px;
+
+  .main-title {
+    display: flex;
+    position: relative;
+    .title {
+      position: absolute;
+      right: 35%;
+      font-size: 16px;
+      font-weight: 700;
+      color: #344054;
+    }
+  }
+  .back {
+    display: flex;
+    align-items: center;
+    p {
+      font-size: 10px;
+      font-weight: 600;
+      color: #344054;
+      line-height: 13px;
+    }
+  }
+  .score-info {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff6e4;
+    padding: 7px 10px;
+    margin-top: 15px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    p {
+      font-size: 14px;
+      font-weight: 600;
+      color: #b38222;
+    }
+    .score {
+      display: flex;
+      align-items: center;
+      span {
+        font-family: "iranyekan";
+        font-size: 14px;
+        font-weight: 600;
+        color: #b38222;
+        margin-left: 4px;
+        line-height: 20px;
+      }
+      p {
+        margin-left: 5px;
+        font-weight: 600;
+      }
+    }
+  }
+  .info-btns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  .customer-club-cards {
+    margin-top: 10px;
+    .card {
+      position: relative;
+      height: 124px;
+      padding: 10px;
+      background-color: #fcfcfd;
+      border-radius: 5px;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      -ms-border-radius: 5px;
+      -o-border-radius: 5px;
+      .img-and-name {
+        display: flex;
+        .main-title-card {
+          margin-inline-start: 10px;
+          .card-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #344054;
+          }
+          .desc {
+            display: flex;
+            align-items: center;
+            .desc-text{
+                display: flex;
+                align-items: center;
+                font-family: "iranyekan";
+                margin-inline-start: 5px;
+                color: #667085;
+                font-size: 14px;
+                font-weight: 600;
+                span{
+                  margin-inline-end: 5px;
+                }
+                p{
+                  margin-top: 2px;
+                }
+            }
+            // p {
+            //   font-family: "iranyekan";
+            //   margin-inline-start: 5px;
+            //   color: #667085;
+            //   font-size: 14px;
+            //   font-weight: 600;
+            // }
+
+          }
+        }
+      }
+      .btns {
+        width: 95%;
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        bottom: 7px;
+        .receive-discount-btn {
+          width: 48%;
+          padding: 5px;
+          font-size: 12px;
+          font-weight: 600;
+          color: #475467;
+          border-radius: 5px;
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+          -ms-border-radius: 5px;
+          -o-border-radius: 5px;
+          background-color: #fcfcfd;
+          border: 1px solid #eaecf0;
+        }
+        .needed-score-btn{
+            width: 48%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            color: #B38222;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+            background-color: #fff1d6;
+            .needed-score-text{
+              display: flex;
+              font-family: 'iranyekan';
+              margin-inline-start: 5px;
+              span{
+                margin-inline-end: 5px;
+              }
+              p{
+                margin-top: 5px;
+              }
+            }
+            
+          }
+      }
+    }
+  }
+}
+.success-discount-payment-modal{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+   min-height: 320px;
+  background-color: #fff;
+  z-index: 2;
+  border-radius: 15px 15px 0 0;
+  -webkit-border-radius: 15px 15px 0 0;
+  -moz-border-radius: 15px 15px 0 0;
+  -ms-border-radius: 15px 15px 0 0;
+  -o-border-radius: 15px 15px 0 0;
+  .header{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      border-bottom: 2px solid #F2F4F7;
+      margin-bottom: 20px;
+      .title{
+          font-size: 16px;
+          font-weight: 700;
+      }
+      .close{
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          width: 90px;
+          padding: 5px;
+          background-color: #FCFCFD;
+          border-radius: 7px;
+          -webkit-border-radius: 7px;
+          -moz-border-radius: 7px;
+          -ms-border-radius: 7px;
+          -o-border-radius: 7px;
+          p{
+              font-size: 14px;
+              font-weight: 600;
+          }
+}
+  }
+  .options-list{
+      display: flex;
+      flex-direction: column;
+      height: 300px;
+  }
+  .submit-filter-btn{
+      width: 100%;
+      position: absolute;
+      bottom: 10px;
+      text-align: center;
+      button{
+          width: 90%;
+          padding: 7px;
+          background-color: #FCFCFD;
+          color: #475467;
+          font-size: 14px;
+          font-weight: 600;
+          border: 1px solid #EAECF0;
+          border-radius: 10px;
+          -webkit-border-radius: 10px;
+          -moz-border-radius: 10px;
+          -ms-border-radius: 10px;
+          -o-border-radius: 10px;
+      } 
+}
+.content{
+  width: 90%;
+  margin: 0 auto;
+  .card {
+    position: relative;
+    height: 115px;
+    padding: 10px;
+    border: 1px solid #EAECF0;
+    background-color: #fcfcfd;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    .img-and-name {
+      display: flex;
+      .main-title-card {
+        margin-inline-start: 10px;
+        .card-title {
+          font-size: 14px;
+          font-weight: 600;
+          color: #344054;
+        }
+        .desc {
+          display: flex;
+          align-items: center;
+          .date-detail{
+            margin: 0 3px;
+          }
+          .limitation-text{
+            font-family: 'iranyekan';
+          }
+          p {
+            font-family: "iranyekan";
+            margin-inline-start: 5px;
+            color: #667085;
+            font-size: 12px;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+    .btns {
+      width: 95%;
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      bottom: 10px;
+      .copy-code-btn {
+        width: 38%;
+        padding: 3px 5px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #49D4AE;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+        background-color: #fcfcfd;
+        border: 1px solid #49D4AE;
+      }
+      .code-btn{
+          width: 60%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 3px 5px;
+          font-size: 14px;
+          font-weight: 700;
+          color: #475467;
+          border-radius: 5px;
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+          -ms-border-radius: 5px;
+          -o-border-radius: 5px;
+          background-color: #FCFCFD;
+          border: 3px dotted #EAECF0;
+          p{
+              font-family: 'iranyekan';
+              margin-inline-start: 5px;
+          }
+          
+        }
+    }
+  }
+  .link-to-discount-crm-text{
+    display: flex;
+    margin-top: 15px;
+    p{
+      font-size: 12px;
+      font-weight: 600;
+      color: #475467;
+    }
+    span{
+      margin: 0 3px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #2E73CE;
+    }
+  }
+}
+
+}
