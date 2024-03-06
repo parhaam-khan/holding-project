@@ -124,7 +124,7 @@ const CreditCardReceipt = () => {
             </p>
             <div className={styles.amount}>
             <span>
-            {thousandSeperator(creditCardInfo.amount)}
+            {thousandSeperator(creditCardInfo.sellPrice)}
             </span>
             <span className={styles.currency}>
             تومان

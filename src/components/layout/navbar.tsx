@@ -36,7 +36,7 @@ const Navbar = () => {
                 </h1>
                 </div>
                 <div className={styles.divider}></div>
-         <div className={styles.notifs} onClick={() => router.push(`${holdingInfo.id}/notifications`)}>
+         <div className={styles.notifs} onClick={() => router.push(`/${holdingInfo.id}/notifications`)}>
          <Image
                 src={notifIcon}
                 alt="notif icon"

@@ -14,7 +14,7 @@ export const API = async(url:string, method:string, data?:{},header:DataHeaders 
         method: method,
         url: apiUrl + url,
         headers: headers,
-        data: data,
+        data: data ?? {},
       });
       return response;
 }
