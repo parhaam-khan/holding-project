@@ -8,10 +8,13 @@ import { API } from "@/services/request-http";
 import useAuth from "@/hooks/useAuth";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 
 const Register = () => {
     const router = useRouter();
+    const merchantId = useSelector((state:any) => state.holding.holdingInfo.id);
+
     // const{isLogin} = useAuth();
     const[state,setState] = useState<{
         msisdn:string,
@@ -80,7 +83,7 @@ const Register = () => {
             <p>
                 حساب کاربری دارید؟
             </p>
-            <Link href={'/authenticate/login'}>
+            <Link href={`/${merchantId}/authenticate/login`}>
                 <p>
                 وارد شوید
                 </p>
