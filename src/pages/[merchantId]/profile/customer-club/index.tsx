@@ -10,16 +10,18 @@ import discountIcon from "../../../../../public/icons/discount-raw-icon.svg";
 import clockIcon from "../../../../../public/icons/clock-icon.svg";
 import FilterBtn from "@/components/buttons/FilterBtn";
 import Modal from "@/components/Modal/Modal";
-import { copyToClipboardHandler, isEmpty } from "@/helper";
+import { isEmpty } from "@/helper";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import { API } from "@/services/request-http";
 import LoadingCircle from "@/components/loading/loading-circle";
 import moment from "jalali-moment";
+import { useSnackbar } from "notistack";
 
 const CustomerClub = () => {
   const router = useRouter();
   const { validateToken } = useAuth();
+  const { enqueueSnackbar } = useSnackbar();
   const merchantId = useSelector((state: any) => state.holding.holdingInfo.id);
   const userInfo = useSelector((state:any) => state.user.userInfo);
   const [isOpen, setIsOpen] = useState(false);
@@ -70,6 +72,14 @@ const CustomerClub = () => {
     setDiscountId(id);
     setModalContent({ ...modalContent, point: neededPoint, title });
   };
+
+  const copyToClipboardHandler = (text:any) => {
+    navigator.clipboard.writeText(text).then(() => {
+      enqueueSnackbar(text, { variant: 'success'})
+      },() => {
+        enqueueSnackbar('خطا کپی کردن متن موردنظر', { variant: 'error'})
+      });
+}
 
   const submitModalHandler = async() => {
     setLoading(true);

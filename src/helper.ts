@@ -20,11 +20,3 @@ export const isEmpty = (value:any) =>
       return value.toString().replace(/\d{4}(?=.)/g, '$& ')
     }
   }
-
-  export const copyToClipboardHandler = (text:any) => {
-    navigator.clipboard.writeText(text).then(() => {
-        console.log('Content copied to clipboard');
-      },() => {
-        console.error('Failed to copy');
-      });
-}

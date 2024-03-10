@@ -48,6 +48,9 @@
               .desc {
                 display: flex;
                 align-items: center;
+                .date-detail{
+                  margin: 0 2px;
+                }
                 p {
                   font-family: "iranyekan";
                   margin-inline-start: 5px;
