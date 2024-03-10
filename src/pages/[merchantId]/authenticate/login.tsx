@@ -19,6 +19,10 @@ const Login = () => {
     // const[merchantId,setMerchantId] = useState('');
     const[showPass,setShowPass] = useState(false);
     const[loading,setLoading] = useState(false);
+    const[apiError,setApiError] = useState({
+        isError:false,
+        errorMsg:""
+    });
     // console.log(loading);
     const[state,setState] = useState<{
         msisdn:string,
@@ -28,6 +32,7 @@ const Login = () => {
         password:""
     })
     const{msisdn,password} = state;
+    const{isError,errorMsg} = apiError;
 
     // useEffect(() => {
     //     const data = JSON.parse(localStorage.getItem('holdingInfo')  || '{}') 
@@ -55,8 +60,11 @@ const Login = () => {
         localStorage.setItem("token",JSON.stringify(token))
         router.push(`/${merchantId}`)
         setLoading(false)
+        if(isError){
+            setApiError({isError: false, errorMsg: ''});
+        }
     }catch(err:any){
-        console.log(err?.response?.data?.message);
+        setApiError({isError: true, errorMsg: err?.response?.data?.message});
         setLoading(false)
     }
     }
@@ -80,6 +88,8 @@ const Login = () => {
              label='شماره همراه'
              type="tel"
              handleOnChange={handleOnChange}
+             isError={isError}
+             errorMsg={errorMsg}
              />
             </div>
           <div className={styles['text-field']}>
@@ -91,6 +101,8 @@ const Login = () => {
              type={!showPass && "password"}
              value={password}
              autoComplete="new-password"
+             isError={isError}
+             errorMsg={errorMsg}
              endIconNode={
                 <Image
                 className={cs(styles2.icon,styles2['end-icon'])}

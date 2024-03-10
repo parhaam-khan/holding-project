@@ -79,7 +79,7 @@
     top: -8px;
     right: 35px;
     font-size: small;
-    color: #344054;
+    color: #bebebe;
     background-color: #FCFCFD;
     padding: 0 5px 0 5px;
   }
@@ -87,4 +87,14 @@
     background-color: #FCFCFD !important;
 
   }
+  &.error{
+    input{
+      border: 1px solid #EF476F;
+    }
+  }
+}
+.error-msg{
+  font-size: 12px;
+  color: #EF476F;
+  margin-top: 3px;
 }
