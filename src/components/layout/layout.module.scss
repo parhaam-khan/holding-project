@@ -13,7 +13,8 @@
     .holding-name-logo-notifs {
     height: 56px;
     padding: 10px;
-    background-color: #FCFCFD;
+    background-color: var(--bg-color-1);
+    border-bottom: 1px solid var(--bg-color-2);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -32,7 +33,7 @@
             font-size: 14px;
             font-weight: 700;
             margin-right: 10px;
-            color: #0C111D;
+            color: var(--text-color);
           }
       }
       .divider{
@@ -40,7 +41,7 @@
         position: absolute;
         height: 100%;
         right: 85%;
-        background-color: #ececec;
+        background-color: var(--bg-color-2);
       }
       .notifs{
         display: flex;
@@ -59,6 +60,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    box-shadow: var(--footer-box-shadow);
     .menuItem{
       position: relative;
       display: flex;

@@ -11,7 +11,7 @@
       right: 35%;
       font-size: 16px;
       font-weight: 700;
-      color: #344054;
+      color: var(--text-color);
     }
   }
   .back {
@@ -20,7 +20,7 @@
     p {
       font-size: 10px;
       font-weight: 600;
-      color: #344054;
+      color: var(--text-color);
       line-height: 13px;
     }
   }
@@ -68,7 +68,8 @@
       position: relative;
       height: 124px;
       padding: 10px;
-      background-color: #fcfcfd;
+      margin-bottom: 10px;
+      background-color: var(--bg-card);
       border-radius: 5px;
       -webkit-border-radius: 5px;
       -moz-border-radius: 5px;
@@ -81,7 +82,7 @@
           .card-title {
             font-size: 14px;
             font-weight: 700;
-            color: #344054;
+            color: var(--text-color);
           }
           .desc {
             display: flex;
@@ -91,7 +92,7 @@
                 align-items: center;
                 font-family: "iranyekan";
                 margin-inline-start: 5px;
-                color: #667085;
+                color: var(--text-grey);
                 font-size: 14px;
                 font-weight: 600;
                 span{
@@ -123,14 +124,14 @@
           padding: 5px;
           font-size: 12px;
           font-weight: 600;
-          color: #475467;
+          color: var(--text-color);
           border-radius: 5px;
           -webkit-border-radius: 5px;
           -moz-border-radius: 5px;
           -ms-border-radius: 5px;
           -o-border-radius: 5px;
-          background-color: #fcfcfd;
-          border: 1px solid #eaecf0;
+          background-color: var(--bg-color-1);
+          border: 1px solid var(--bg-color-5);
         }
         .needed-score-btn{
             width: 48%;
@@ -168,7 +169,7 @@
   bottom: 0;
   width: 100%;
    min-height: 320px;
-  background-color: #fff;
+  background-color: var(--bg-color-4);
   z-index: 2;
   border-radius: 15px 15px 0 0;
   -webkit-border-radius: 15px 15px 0 0;
@@ -180,11 +181,12 @@
       justify-content: center;
       align-items: center;
       padding: 10px;
-      border-bottom: 2px solid #F2F4F7;
+      border-bottom: 2px solid var(--bg-color-5);
       margin-bottom: 20px;
       .title{
           font-size: 16px;
           font-weight: 700;
+          color: var(--text-color);
       }
       .close{
           display: flex;
@@ -217,8 +219,8 @@
       button{
           width: 90%;
           padding: 7px;
-          background-color: #FCFCFD;
-          color: #475467;
+          background-color: var(--bg-color-1);
+          color: var(--text-color-1);
           font-size: 14px;
           font-weight: 600;
           border: 1px solid #EAECF0;
@@ -236,8 +238,8 @@
     position: relative;
     height: 115px;
     padding: 10px;
-    border: 1px solid #EAECF0;
-    background-color: #fcfcfd;
+    border: 1px solid var(--bg-color-5);
+    background-color: var(--bg-card);
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -250,7 +252,7 @@
         .card-title {
           font-size: 14px;
           font-weight: 600;
-          color: #344054;
+          color: var(--text-color);
         }
         .desc {
           display: flex;
@@ -264,7 +266,7 @@
           p {
             font-family: "iranyekan";
             margin-inline-start: 5px;
-            color: #667085;
+            color: var(--text-grey);
             font-size: 12px;
             font-weight: 600;
           }
@@ -288,7 +290,7 @@
         -moz-border-radius: 5px;
         -ms-border-radius: 5px;
         -o-border-radius: 5px;
-        background-color: #fcfcfd;
+        background-color: var(--bg-color-1);
         border: 1px solid #49D4AE;
       }
       .code-btn{
@@ -299,13 +301,13 @@
           padding: 3px 5px;
           font-size: 14px;
           font-weight: 700;
-          color: #475467;
+          color: var(--text-color);
           border-radius: 5px;
           -webkit-border-radius: 5px;
           -moz-border-radius: 5px;
           -ms-border-radius: 5px;
           -o-border-radius: 5px;
-          background-color: #FCFCFD;
+          background-color: var(--bg-color-1);
           border: 3px dotted #EAECF0;
           p{
               font-family: 'iranyekan';
@@ -321,7 +323,7 @@
     p{
       font-size: 12px;
       font-weight: 600;
-      color: #475467;
+      color: var(--text-color-1);
     }
     span{
       margin: 0 3px;

@@ -47,7 +47,9 @@ const BranchInfoCard = (props:any) => {
             </div>
             <a href={branchInfo.website} target="_blank">
             <button className={styles['card-btn']}>
+              <p>
            مشاهده سایت شعبه
+              </p>
             </button>
             </a>
         </div>

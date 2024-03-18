@@ -8,6 +8,8 @@
   .search-input {
     width: 100%;
     display: block;
+    color: var(--text-color);
+    background-color: var(--bg-color-3);
     padding: 10px 12% 10px 10px;
     border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -17,7 +19,7 @@
     &::placeholder {
       position: absolute;
       font-family: YekanBakh;
-      color: #344054;
+      color: var(--text-color);
       font-size: 12px;
       font-weight: 600;
       right: 12%;

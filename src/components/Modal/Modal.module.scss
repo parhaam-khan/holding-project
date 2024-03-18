@@ -19,7 +19,7 @@
   .modal {
     width: 310px;
     height: 170px;
-    background: white;
+    background: var(--bg-color-4);
     color: white;
     z-index: 10;
     border-radius: 16px;
@@ -28,7 +28,7 @@
   
   .modalHeader {
     height: 50px;
-    background: white;
+    background: var(--bg-color-4);
     overflow: hidden;
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
@@ -37,7 +37,7 @@
   .heading {
     margin: 0;
     padding: 10px;
-    color: #2c3e50;
+    color: var(--text-color);
     font-weight: 500;
     font-size: 18px;
     text-align: center;
@@ -46,7 +46,7 @@
   .modalContent {
     padding: 10px;
     font-size: 14px;
-    color: #2c3e50;
+    color: var(--text-color);
     text-align: center;
   }
   
@@ -73,7 +73,7 @@
     border: none;
     font-size: 18px;
     color: #2c3e50;
-    background: white;
+    background: var(--bg-color-4);
     transition: all 0.25s ease;
     box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.06);
     position: absolute;
@@ -99,7 +99,7 @@
     font-size: 0.8rem;
     border: none;
     color: #49D4AE;
-    background-color: #FCFCFD;
+    background-color: var(--bg-color-1);
     border: 1px solid #49D4AE;
     transition: all 0.25s ease;
   }
@@ -119,8 +119,8 @@
     border-radius: 12px;
     font-size: 0.8rem;
     border: none;
-    color: #2c3e50;
-    background: #FCFCFD;
+    color: var(--text-color);
+    background: var(--bg-color-1);
     transition: all 0.25s ease;
   }
   

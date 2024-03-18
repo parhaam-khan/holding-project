@@ -1,0 +1,32 @@
+/* CSS variables for dark/light mode */
+
+
+:root {
+    --bg-body: #EAECF0;
+    --bg-color-1:#FCFCFD;
+    --text-color: #344054;
+    --bg-color-2: #ececec;
+    --bg-color-3: #FCFCFD;
+    --bg-card: #fcfcfd;
+    --text-grey:#667085;
+    --bg-color-4: #fff;
+    --bg-color-5: #F2F4F7;
+    --bg-color-6: #fff;
+    --footer-box-shadow: none;
+    --text-color-1: #475467;
+}
+
+[data-theme="dark"] {
+    --bg-body: #0C111D;
+    --bg-color-1: #0C111D;
+    --text-color: #CECFD2;
+    --bg-color-2: #757575;
+    --bg-color-3: #161B26;
+    --bg-card: #161B26;
+    --text-grey: #94969C;
+    --bg-color-4: #1F242F;
+    --bg-color-5: #494848;
+    --bg-color-6: #000;
+    --footer-box-shadow:rgb(95 95 95) 0px 10px 30px;
+    --text-color-1: #CECFD2;
+}
