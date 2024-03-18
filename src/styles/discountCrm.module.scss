@@ -54,7 +54,7 @@
                 p {
                   font-family: "iranyekan";
                   margin-inline-start: 5px;
-                  color: #667085;
+                  color: var(--text-grey);
                   font-size: 12px;
                   font-weight: 600;
                 }
@@ -78,7 +78,7 @@
               -moz-border-radius: 5px;
               -ms-border-radius: 5px;
               -o-border-radius: 5px;
-              background-color: #fcfcfd;
+              background-color: var(--bg-color-1);
               border: 1px solid #49D4AE;
             }
             .code-btn{
@@ -89,13 +89,13 @@
                 padding: 3px 5px;
                 font-size: 14px;
                 font-weight: 700;
-                color: #475467;
+                color: var(--text-color-1);
                 border-radius: 5px;
                 -webkit-border-radius: 5px;
                 -moz-border-radius: 5px;
                 -ms-border-radius: 5px;
                 -o-border-radius: 5px;
-                background-color: #FCFCFD;
+                background-color: var(--bg-color-1);
                 border: 3px dotted #EAECF0;
                 p{
                     font-family: 'iranyekan';

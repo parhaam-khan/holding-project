@@ -11,7 +11,7 @@
         right: 35%;
         font-size: 16px;
         font-weight: 700;
-        color: #344054;
+        color: var(--text-color);
       }
     }
     .back {
@@ -20,7 +20,7 @@
       p {
         font-size: 10px;
         font-weight: 600;
-        color: #344054;
+        color: var(--text-color);
         line-height: 13px;
       }
     }
