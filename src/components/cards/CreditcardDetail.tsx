@@ -3,9 +3,11 @@ import styles from './cards.module.scss'
 import { thousandSeperator } from '@/helper';
 import { API } from '@/services/request-http';
 import { useSelector } from 'react-redux';
+import { useSnackbar } from 'notistack';
 
 const CreditcardDetail = (props:any) => {
     const{data,holdingInfo} = props;
+    const { enqueueSnackbar } = useSnackbar();
     const userInfo = useSelector((state:any) => state.user.userInfo);
 
     const submitPurchaseCardHandler = async() => {
@@ -19,8 +21,7 @@ const CreditcardDetail = (props:any) => {
             const{data:{result}} = res;
             window.location.href= result?.link
         }catch(err:any){
-            console.log(err);
-            err.response && console.log(err.response.data.message);
+            err.response && enqueueSnackbar(err.response.data.message, { variant: 'error'});
         }
     }
 

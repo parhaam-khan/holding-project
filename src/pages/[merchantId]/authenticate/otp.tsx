@@ -10,8 +10,10 @@ import InputMask from "react-input-mask";
 import OTPInput from "react-otp-input";
 import Image from "next/image";
 import cs from 'classnames';
+import { useSnackbar } from "notistack";
 
 const Otp = () => {
+    const { enqueueSnackbar } = useSnackbar();
     const router = useRouter();
     const{isLogin} = useAuth();
     const[otpCode,setOtpCode] = useState('');
@@ -36,7 +38,7 @@ const Otp = () => {
         localStorage.setItem('token', res?.data?.token);
          router.push(`/authenticate/success-register`)
     }catch(err:any){
-        console.log(err.response.data.message);
+        err.response && enqueueSnackbar(err.response.data.message, { variant: 'error'});
     }
     }
 

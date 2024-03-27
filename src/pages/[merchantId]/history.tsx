@@ -12,9 +12,11 @@ import FilterList from "@/components/filterListDialog/FilterList";
 import LoadingCircle from "@/components/loading/loading-circle";
 import { useSelector } from "react-redux";
 import Head from "next/head";
+import { useSnackbar } from "notistack";
 
 const History = () => {
 const{validateToken} = useAuth();
+const { enqueueSnackbar } = useSnackbar();
 const merchantId = useSelector((state:any) => state.holding.holdingInfo.id);
 const[historyInfo,setHistoryInfo] = useState<{[key:string]:any}>({});
 const holdingInfo = useSelector((state:any) => state.holding.holdingInfo);
@@ -29,6 +31,7 @@ const[showFilterList,setShowFilterList] = useState({
 
 useEffect(() => {
   if(merchantId){
+    console.log('id accessss');
     initialApi(merchantId)
   }
    },[merchantId])
@@ -47,7 +50,7 @@ useEffect(() => {
        setLoading(false)
    }catch(err:any){
        err.response && validateToken(err.response.status)
-       err.response && console.log(err.response.data.message);
+       err.response && enqueueSnackbar(err.response.data.message, { variant: 'error'});
        setLoading(false)
    }
  }

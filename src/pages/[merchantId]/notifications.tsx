@@ -10,9 +10,11 @@ import LoadingCircle from "@/components/loading/loading-circle";
 import { useSelector } from "react-redux";
 import Link from "next/link";
 import { baseUrl } from "@/services/apiUrl";
+import { useSnackbar } from "notistack";
 
 const Notifications = () => {
   const router = useRouter();
+  const { enqueueSnackbar } = useSnackbar();
   // const[holdingInfo,setHoldingInfo] = useState<{[key:string]:any}>({});
   const merchantId = useSelector((state: any) => state.holding.holdingInfo.id);
   const [notifInfo, setNotifInfo] = useState([]);
@@ -33,8 +35,7 @@ const Notifications = () => {
       setNotifInfo(resultList);
       setLoading(false);
     } catch (err: any) {
-      console.log(err);
-      err.response && console.log(err.response.data.message);
+      err.response && enqueueSnackbar(err.response.data.message, { variant: 'error'});
       setLoading(false);
     }
   };

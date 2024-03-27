@@ -6,7 +6,7 @@ import Image from "next/image";
 import moment from "jalali-moment";
 import LoadingCircle from "@/components/loading/loading-circle";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUserInfo } from "@/features/user/userSlice";
+import  { fetchUserInfo } from "@/features/user/userSlice";
 import Head from "next/head";
 
 const Profile = () => {
@@ -15,7 +15,7 @@ const Profile = () => {
     const holdingInfo = useSelector((state:any) => state.holding.holdingInfo);
     const loading = useSelector((state:any) => state.user.loading);
     const apiCode = useSelector((state:any) => state.user.apiCode);
-    const userInfo = useSelector((state:any) => state.user.userInfo);
+     const userInfo = useSelector((state:any) => state.user.userInfo);
     //  console.log(userInfo);
     // const merchantId = useSelector((state:any) => state.holding.holdingInfo.id);
     // const[loading,setLoading] = useState(false);
@@ -31,24 +31,6 @@ useEffect(() => {
 },[holdingInfo.id])
 
 
-//   const initialApi = async(merchantId:any) => {
-//     let headers = {
-//         'SM-TOKEN': JSON.parse(localStorage.getItem('token') || ''),
-//         'X-VIEWNAME': 'simple',
-//       };
-//     try{
-//         const res = await API(`preauth/bills/customer/${merchantId}/getCustomerProfile`,'get',{},headers)
-//         const{data:{result}} = res;
-//         //  console.log(res);
-//         setUserInfo(result)
-//         setLoading(false)
-//     }catch(err:any){
-//         console.log(err);
-//         err.response && tokenCheck(err.response.status)
-//         err.response && console.log(err.response.data.message);
-//         setLoading(false)
-//     }
-//   }
 
   const logOutUserHandler = () => {
     localStorage.removeItem('token')

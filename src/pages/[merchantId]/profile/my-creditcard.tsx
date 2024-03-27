@@ -10,9 +10,11 @@ import { isEmpty, separateToCardNumber, thousandSeperator } from "@/helper";
 import { useSelector } from "react-redux";
 import LoadingCircle from "@/components/loading/loading-circle";
 import Link from "next/link";
+import { useSnackbar } from "notistack";
 
 const MyCreditcard = () => {
     const router = useRouter();
+    const { enqueueSnackbar } = useSnackbar();
     // const{isLogin} = useAuth();
     // const[holdingInfo,setHoldingInfo] = useState<{[key:string]:any}>({});
     const[loading,setLoading] = useState(true);
@@ -38,9 +40,7 @@ useEffect(() => {
                  setCreditcardInfo(resultList)
                  setLoading(false)
             }catch(err:any){
-                console.log(err);
-                // err.response && tokenCheck(err.response.status)
-                err.response && console.log(err.response.data.message);
+                err.response && enqueueSnackbar(err.response.data.message, { variant: 'error'});
                 setLoading(false)
             }
           }

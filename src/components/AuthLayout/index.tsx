@@ -10,6 +10,8 @@ import { isEmpty } from '@/helper';
 import { fetchHoldingInfo } from '@/features/holding/holdingSlice';
 
 
+//LAYOUT for auth pages (login/register/otp)
+
 const AuthLayout = ({ children } : LayoutProps) => {
     const holdingInfo = useSelector((state:any) => state.holding.holdingInfo);
     const [isClient, setIsClient] = useState(false);

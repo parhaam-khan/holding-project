@@ -9,10 +9,12 @@ import useAuth from "@/hooks/useAuth";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { useSelector } from "react-redux";
+import { useSnackbar } from "notistack";
 
 
 const Register = () => {
     const router = useRouter();
+    const { enqueueSnackbar } = useSnackbar();
     const merchantId = useSelector((state:any) => state.holding.holdingInfo.id);
 
     // const{isLogin} = useAuth();
@@ -48,7 +50,7 @@ const Register = () => {
                 query: { phoneNum:msisdn }
             })
         }catch(err:any){
-            console.log(err.response.data.message);
+            err.response && enqueueSnackbar(err.response.data.message, { variant: 'error'});
         }
         }
 

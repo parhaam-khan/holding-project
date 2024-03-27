@@ -62,7 +62,7 @@ const CustomerClub = () => {
       setLoading(false);
     } catch (err: any) {
       err.response && validateToken(err.response.status);
-      err.response && console.log(err.response.data.message);
+      err.response && enqueueSnackbar(err.response.data.message, { variant: 'error'});
       setLoading(false);
     }
   };
@@ -101,7 +101,7 @@ const CustomerClub = () => {
       setLoading(false);
     } catch (err: any) {
       err.response && validateToken(err.response.status);
-      err.response && console.log(err.response.data.message);
+      err.response && enqueueSnackbar(err.response.data.message, { variant: 'error'});
       setIsOpen(false);
       setLoading(false);
     }
