@@ -55,7 +55,7 @@ export default function Home(props:any) {
        <div className={styles['filters-btn']}>
        {!isEmpty(holdingInfo.tagList) &&
         <FilterBtn clickHandle={() => showFilterListHandler('cat')} imgSource={'icons/category-icon.svg'}>
-       <p>دسته بندی</p> 
+       <p>دسته بندی شعب</p> 
        </FilterBtn>}
        {!isEmpty(holdingInfo.cityList) &&
        <FilterBtn clickHandle={() => showFilterListHandler('city')} imgSource={'icons/location-icon.svg'}>
@@ -65,14 +65,15 @@ export default function Home(props:any) {
        {!isEmpty(subMerchants) &&
         subMerchants?.map((item:any,idx:number) => (
           <div className={styles['branch-section']} key={idx + 1}>
-            {!isEmpty(item.subMerchantList) && holdingInfo.tagList.length > 1 &&
              <div className={styles['header-horizental']}>
-          <span className={styles['category-name']}>{item.tag}</span>
-          {/* <span className={styles['show-all-text']}>مشاهده همه</span> */}
-            </div>}
-          <div className={cs(styles.branches,holdingInfo.tagList.length > 1 && styles.horizental)}>
+               <span className={styles['category-name']}>{item.tag}</span>
+            {!isEmpty(item.subMerchantList) && item.subMerchantList.length > 1 &&
+          <span className={styles['show-all-text']}>مشاهده همه</span>
+            }
+            </div>
+          <div className={cs(styles.branches,item.subMerchantList.length > 1 && styles.horizental)}>
             {item.subMerchantList.map((branch:any,index:number) => (
-                <BranchInfoCard tagList={holdingInfo.tagList} key={branch.id} branchInfo={branch}/>
+                <BranchInfoCard tagList={item.subMerchantList} key={branch.id} branchInfo={branch}/>
             ))}
              </div>
              </div>
