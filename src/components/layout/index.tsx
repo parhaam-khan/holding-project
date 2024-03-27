@@ -28,11 +28,11 @@ export default function Layout({
 
   //checking existing token
  useEffect(() => {
-  if(loginCheck && !isLogin()){
+  if(loginCheck && merchantId && !isLogin()){
     router.push(`/${merchantId}/authenticate/login`)
   }
   setIsClient(true)
- },[])
+ },[merchantId])
 
 
  // if user comes to website with any page link except landing page (ex. profile page link),
