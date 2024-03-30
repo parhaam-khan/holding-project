@@ -1,4 +1,4 @@
-FROM hub.yottab.io/library/bitnami/node:18.17.1
+FROM hub.yottab.io/library/bitnami/node:18.14.0
 
 WORKDIR /app
 
