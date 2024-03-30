@@ -1,0 +1,98 @@
+stages:
+  - build
+  - deploy
+
+build:prod:
+  image: hub.yottab.io/library/docker:stable
+  stage: build
+  variables:
+    DOCKER_HOST: unix:///var/run/docker.sock
+  script:
+    - docker login -u "${YB_REGISTRY_USER}" -p "${YB_REGISTRY_PASSWORD}" "${YB_REGISTRY_ADDRESS}"
+    - docker image build -t "${YB_REGISTRY_ADDRESS}/prod/MerchantHolding:$CI_COMMIT_SHA" .
+    - docker push "${YB_REGISTRY_ADDRESS}/prod/MerchantHolding:$CI_COMMIT_SHA"
+  only:
+    - prod
+  when: manual
+  tags:
+    -  yottab
+
+
+build:stage:
+  image: hub.yottab.io/library/docker:stable
+  stage: build
+  variables:
+    DOCKER_HOST: unix:///var/run/docker.sock
+  script:
+    - docker login -u "${YB_REGISTRY_USER}" -p "${YB_REGISTRY_PASSWORD}" "${YB_REGISTRY_ADDRESS}"
+    - docker image build -t "${YB_REGISTRY_ADDRESS}/stage/MerchantHolding:$CI_COMMIT_SHA" .
+    - docker push "${YB_REGISTRY_ADDRESS}/stage/MerchantHolding:$CI_COMMIT_SHA"
+  tags:
+    -  yottab
+  only:
+    - stage
+  when: manual
+
+
+deploy:prod:
+  image: hub.yottab.io/library/alpine:3.17.2
+  stage: deploy
+  before_script:
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+  script:
+    - echo "SHOP_PROD_IMAGE_NAME=${YB_REGISTRY_ADDRESS}/prod/MerchantHolding:$CI_COMMIT_SHA" > new-merch.env
+#   - echo "$MUPRA_PROD_SERVER_SSH_KEY" >> key && chmod 600 key
+#    - scp -i key -o StrictHostKeyChecking=no new-merch.env ${MUPRA_PROD_SERVER_USER}@${MUPRA_PROD_SERVER_IP}:/opt/docker-apps/new-merch.env
+#    - ssh -i key -o StrictHostKeyChecking=no ${MUPRA_PROD_SERVER_USER}@${MUPRA_PROD_SERVER_IP} 'cd /opt/docker-apps && cat new-merch.env >> .env && rm new-merch.env'
+#    - ssh -i key -o StrictHostKeyChecking=no ${MUPRA_PROD_SERVER_USER}@${MUPRA_PROD_SERVER_IP} 'cd /opt/docker-apps && docker-compose up -d MerchantHolding'
+#    - echo -n > key
+#    - echo "$KESHTIRANI_PROD_SERVER_SSH_KEY" >> key && chmod 600 key
+#    - scp -i key -o StrictHostKeyChecking=no new-merch.env ${KESHTIRANI_PROD_SERVER_USER}@${KESHTIRANI_PROD_SERVER_IP}:/opt/app-docker/new-merch.env
+#    - ssh -i key -o StrictHostKeyChecking=no ${KESHTIRANI_PROD_SERVER_USER}@${KESHTIRANI_PROD_SERVER_IP} 'cd /opt/app-docker && cat new-merch.env >> .env && rm new-merch.env'
+#    - ssh -i key -o StrictHostKeyChecking=no ${KESHTIRANI_PROD_SERVER_USER}@${KESHTIRANI_PROD_SERVER_IP} 'cd /opt/app-docker && docker-compose up -d MerchantHolding && sleep 20 && docker restart nginx'
+#    - echo -n > key
+#    - echo "$AHRAM_PROD_SERVER_SSH_KEY" >> key && chmod 600 key
+#    - scp -P ${AHRAM_PROD_SERVER_PORT} -i key -o StrictHostKeyChecking=no new-merch.env ${AHRAM_PROD_SERVER_USER}@${AHRAM_PROD_SERVER_IP}:/opt/app-docker/new-merch.env
+#    - ssh -p ${AHRAM_PROD_SERVER_PORT} -i key -o StrictHostKeyChecking=no ${AHRAM_PROD_SERVER_USER}@${AHRAM_PROD_SERVER_IP} 'cd /opt/app-docker && cat new-merch.env >> .env && rm new-merch.env'
+#    - ssh -p ${AHRAM_PROD_SERVER_PORT} -i key -o StrictHostKeyChecking=no ${AHRAM_PROD_SERVER_USER}@${AHRAM_PROD_SERVER_IP} 'cd /opt/app-docker && docker-compose up -d MerchantHolding && sleep 20 && docker restart nginx'
+#    - echo -n > key
+#    - echo "$AVAND_PROD_SERVER_SSH_KEY" >> key && chmod 600 key
+#    - scp -P ${AVAND_PROD_SERVER_PORT} -i key -o StrictHostKeyChecking=no new-merch.env ${AVAND_PROD_SERVER_USER}@${AVAND_PROD_SERVER_IP}:/opt/app-docker/new-merch.env
+#    - ssh -p ${AVAND_PROD_SERVER_PORT} -i key -o StrictHostKeyChecking=no ${AVAND_PROD_SERVER_USER}@${AVAND_PROD_SERVER_IP} 'cd /opt/app-docker && cat new-merch.env >> .env && rm new-merch.env'
+#    - ssh -p ${AVAND_PROD_SERVER_PORT} -i key -o StrictHostKeyChecking=no ${AVAND_PROD_SERVER_USER}@${AVAND_PROD_SERVER_IP} 'cd /opt/app-docker && docker-compose up -d MerchantHolding && sleep 20 && docker restart nginx'
+###VPS_GERMANY_TEST####
+    - echo -n > key
+    - echo "$GERMAN_PROD_SERVER_SSH_KEY" >> key && chmod 600 key
+    - scp -i key -o StrictHostKeyChecking=no new-merch.env ${GERMAN_PROD_SERVER_USER}@${GERMAN_PROD_SERVER_IP}:/opt/app-docker/new-merch.env
+    - ssh -i key -o StrictHostKeyChecking=no ${GERMAN_PROD_SERVER_USER}@${GERMAN_PROD_SERVER_IP} 'cd /opt/app-docker && cat new-merch.env >> .env && rm new-merch.env'
+    - ssh -i key -o StrictHostKeyChecking=no ${GERMAN_PROD_SERVER_USER}@${GERMAN_PROD_SERVER_IP} 'cd /opt/app-docker && docker-compose up -d MerchantHolding && sleep 20 && docker restart nginx'
+    - rm key
+  only:
+    - prod
+  when: manual
+  tags:
+    -  yottab
+
+
+
+
+deploy:stage:
+  image: hub.yottab.io/library/alpine:3.17.2
+  stage: deploy
+  before_script:
+    - http_proxy=http://proxy.sapph.ir:8000 https_proxy=http://proxy.sapph.ir:8000 apk add openssh-client
+    - eval $(ssh-agent -s)
+    - echo "$MUPRA_STAGE_SERVER_SSH_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+  script:
+    - echo "MERCHANT_STAGE_IMAGE_NAME=${YB_REGISTRY_ADDRESS}/stage/MerchantHolding:$CI_COMMIT_SHA" > new-merch.env
+    - scp -o StrictHostKeyChecking=no new-merch.env ${MUPRA_STAGE_SERVER_USER}@${MUPRA_STAGE_SERVER_IP}:/opt/docker-test/new-merch.env
+    - ssh -o StrictHostKeyChecking=no ${MUPRA_STAGE_SERVER_USER}@${MUPRA_STAGE_SERVER_IP} 'cd /opt/docker-test && cat new-merch.env >> .env && rm new-merch.env'
+    - ssh -o StrictHostKeyChecking=no ${MUPRA_STAGE_SERVER_USER}@${MUPRA_STAGE_SERVER_IP} 'cd /opt/docker-test && docker-compose up -d MerchantHolding && sleep 20 && docker restart nginx'
+  tags:
+    -  yottab
+  only:
+    - stage
+  when: manual
