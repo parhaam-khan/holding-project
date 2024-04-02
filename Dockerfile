@@ -9,7 +9,8 @@ RUN npm install
 COPY . .
 
 RUN mv /app/entrypoint.sh /entrypoint.sh \
-    && chmod 755 /entrypoint.sh \ && npm install
+    && chmod 755 /entrypoint.sh \ 
+    && npm install
     && npm run build
 
 EXPOSE 5656
