@@ -1,0 +1,119 @@
+.history-score-crm{
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 100px;
+  
+    .main-title {
+      display: flex;
+      position: relative;
+      .title {
+        position: absolute;
+        right: 35%;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--text-color);
+      }
+    }
+    .back {
+      display: flex;
+      align-items: center;
+      p {
+        font-size: 10px;
+        font-weight: 600;
+        color: var(--text-color);
+        line-height: 13px;
+      }
+    }
+    .score-info {
+        display: flex;
+        justify-content: space-between;
+        background-color: #fff6e4;
+        padding: 7px 10px;
+        margin-top: 15px;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+        p {
+          font-size: 14px;
+          font-weight: 600;
+          color: #b38222;
+        }
+        .score {
+          display: flex;
+          align-items: center;
+          span {
+            font-family: "iranyekan";
+            font-size: 14px;
+            font-weight: 600;
+            color: #b38222;
+            margin-left: 4px;
+            line-height: 20px;
+          }
+          p {
+            margin-left: 5px;
+            font-weight: 600;
+          }
+        }
+      }
+      .history-score-crm-card{
+        margin-top: 10px;
+        .card{
+            height: 88px;
+            background-color: #FCFCFD;
+            padding: 10px;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+            .score-title{
+                display: flex;
+                justify-content: space-between;
+                .img{
+                    display: flex;
+                    align-items: center;
+                    p{
+                        margin-inline-start: 7px;
+                        font-family: 'iranyekan';
+                        font-size: 14px;
+                        font-weight: 700;
+                        color: #344054;
+                    }
+                }
+                .receive-text{
+                    display: flex;
+                    align-items: center;
+                    .received{
+                            margin-inline-start: 5px;
+                            color: #49D4AE;
+                            font-size: 12px;
+                            font-weight: 600;
+                    }
+                    .changed{
+                        margin-inline-start: 5px;
+                        color: #EF476F;
+                        font-size: 12px;
+                        font-weight: 600;
+                    }
+                }
+            }
+            .desc{
+                margin: 5px 0;
+                p{
+                    color: #98A2B3;
+                    font-size: 12px;
+                    font-weight: 600;
+                }
+            }
+            .date{
+                p{
+                    color: #98A2B3;
+                    font-size: 12px;
+                    font-weight: 600;
+                }
+            }
+}
+      }
+}

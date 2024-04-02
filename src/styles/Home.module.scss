@@ -1,23 +1,65 @@
+@import "@/styles/mixins";
+
 .main{
     width: 90%;
     margin: 0 auto;
     padding-bottom: 100px;
-    .branches{
-        display: flex;
-        flex-direction: column;
+    .branch-section{
         margin-top: 15px;
-
-        &.horizental{
-            flex-direction: row;
-            overflow-x: scroll;
-            overflow-y: hidden;
-            white-space: nowrap;
-            scroll-snap-type: x mandatory;
+       
+        .header-horizental{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            .category-name{
+                font-weight: 700;
+                font-size: 14px;
+                color: var(--text-color);
+                }
+                .show-all-text{
+                    font-size: 12px;
+                    font-weight: 600;
+                    color: #2E73CE;
+                }
+        }
+       
+        .branches{
+            display: flex;
+            flex-direction: column;
+    
+            &.horizental{
+                flex-direction: row;
+                overflow-x: scroll;
+                overflow-y: hidden;
+                white-space: nowrap;
+                scroll-snap-type: x mandatory;
+            }
         }
     }
+  
 }
 .filters-btn{
     margin: 15px auto 0;
     display: flex;
     justify-content: space-between;
+}
+.holding-not-exist{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    direction: ltr;
+    p{
+        text-align: center;
+        font-weight: 700;
+        color: #344054;
+    }
+}
+@include uppermobile() {
+    .holding-not-exist{
+    position: relative;
+    height: 100vh;
+    top: 0;
+    display: flex;
+    align-items: center;
+    }
 }

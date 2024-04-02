@@ -1,18 +1,25 @@
 .filter-btn{
-    width: 45%;
+    width: 48%;
     display: flex;
     align-items: center;
     padding: 10px;
     display: flex;
     font-size: 12px;
-    font-weight: 700;
-    justify-content: space-evenly;
-    background-color: #FCFCFD;
+    font-weight: 600;
+    justify-content: center;
+    background-color: var(--bg-color-3) ;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+    p{
+      margin-inline-start: 7px;
+     color: var(--text-color);
+     font-size: 12px;
+     font-weight: 600;
+     line-height: 20px;
+    }
 }
 
 .checkbox-wrapper-1 *,
@@ -30,12 +37,15 @@
   appearance: none;
 }
 .checkbox-wrapper-1 {
-margin: 5px 0;
+height: 35px;
 }
 .checkbox-wrapper-1 label{
     display: flex;
     p{
+      font-size: 14px;
+      font-weight: 600;
         margin-right: 10px;
+        color: var(--text-color);
     }
 }
 .checkbox-wrapper-1 [type=checkbox].substituted + label:before {
@@ -49,7 +59,7 @@ margin: 5px 0;
   border: solid 0.06em;
   box-shadow: 0 0 0.04em, 0 0.06em 0.16em -0.03em inset, 0 0 0 0.07em transparent inset;
   border-radius: 5px;
-  background:url('../../../public/icons/checked-icon.svg') no-repeat center, white;
+  background:url('../../../public/icons/checked-icon.svg') no-repeat center, var(--bg-color-6);
   background-size: 0;
   will-change: color, border, background, background-size, box-shadow;
   transform: translate3d(0, 0, 0);

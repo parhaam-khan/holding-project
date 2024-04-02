@@ -8,7 +8,9 @@
   .search-input {
     width: 100%;
     display: block;
-    padding: 10px 38px 10px 10px;
+    color: var(--text-color);
+    background-color: var(--bg-color-3);
+    padding: 10px 12% 10px 10px;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -17,10 +19,11 @@
     &::placeholder {
       position: absolute;
       font-family: YekanBakh;
-      color: #344054;
+      color: var(--text-color);
       font-size: 12px;
       font-weight: 600;
       right: 12%;
+      top: 30%;
     }
     &:focus {
       outline: none;
@@ -33,7 +36,7 @@
 //   margin: 10px 2.5px 20px 2.5px;
   .icon {
     position: absolute;
-    top: 12px;
+    top: 14px;
     right: 15px;
     &.end-icon{
         right: auto;
@@ -59,6 +62,10 @@
     background-color: #FCFCFD;
     outline: none;
   }
+  input[value]{
+  font-size: 14px;
+  font-weight: 600;
+  }
   label {
     color: #344054;
     font-family: 'YekanBakh';
@@ -67,14 +74,14 @@
     position: absolute;
     pointer-events: none;
     right: 45px;
-    top: 15px;
+    top: 18px;
     transition: 0.2s;
   }
   input:focus ~ label , .input-full {
     top: -8px;
     right: 35px;
     font-size: small;
-    color: #344054;
+    color: #bebebe;
     background-color: #FCFCFD;
     padding: 0 5px 0 5px;
   }
@@ -82,4 +89,14 @@
     background-color: #FCFCFD !important;
 
   }
+  &.error{
+    input{
+      border: 1px solid #EF476F;
+    }
+  }
+}
+.error-msg{
+  font-size: 12px;
+  color: #EF476F;
+  margin-top: 3px;
 }

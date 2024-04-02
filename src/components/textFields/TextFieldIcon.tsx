@@ -8,7 +8,8 @@ const TextFieldIcon = (props:any) => {
         label,
         imgSrc,
         imgAlt,
-        value,type,
+        value,
+        type,
         pattern,
         inputName,
         imgWidth,
@@ -16,10 +17,13 @@ const TextFieldIcon = (props:any) => {
         endIcon=false,
         endIconNode,
         autoComplete,
-        handleOnChange
+        handleOnChange,
+        isError,
+        errorMsg
     } = props;
     return ( 
-        <div className={styles["text-field-icon"]}>
+        <>
+        <div className={cs(styles["text-field-icon"],isError && styles.error)}>
             <Image
                 className={styles.icon}
                 src={imgSrc}
@@ -41,6 +45,11 @@ const TextFieldIcon = (props:any) => {
                 endIconNode
                 }
             </div>
+            {isError && !isEmpty(errorMsg) &&
+            <p className={styles['error-msg']}>
+            {errorMsg}
+            </p>}
+            </>
      );
 }
  

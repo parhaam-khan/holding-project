@@ -1,17 +1,35 @@
 import { useEffect, useState } from 'react';
 import styles from './authLayout.module.scss'
 import Image from 'next/image';
-import { Props } from '@/types';
 import Head from 'next/head';
+import { LayoutProps } from '@/types';
+import { useRouter } from 'next/router';
+import useAuth from '@/hooks/useAuth';
+import { useDispatch, useSelector } from 'react-redux';
+import { isEmpty } from '@/helper';
+import { fetchHoldingInfo } from '@/features/holding/holdingSlice';
 
 
-const AuthLayout = ({ children } : Props) => {
-    const[holdingInfo,setHoldingInfo] = useState<{[key: string]: any}>({});
+//LAYOUT for auth pages (login/register/otp)
+
+const AuthLayout = ({ children } : LayoutProps) => {
+    const holdingInfo = useSelector((state:any) => state.holding.holdingInfo);
+    const [isClient, setIsClient] = useState(false);
+    const router = useRouter();
+     const{isLogin} = useAuth();
+     const merchantId = router.query.merchantId 
+     const dispatch = useDispatch<any>();
 
     useEffect(() => {
-        const data = JSON.parse(localStorage.getItem('holdingInfo')  || '{}') 
-        setHoldingInfo(data)
+        if(isLogin()) router.replace(`/profile`) 
+        setIsClient(true)
     },[])
+
+    useEffect(() => {
+      if(isEmpty(holdingInfo) && merchantId){
+        dispatch(fetchHoldingInfo(merchantId))
+      }
+      },[merchantId])
 
     return ( 
         <>
@@ -19,7 +37,8 @@ const AuthLayout = ({ children } : Props) => {
         <title>{holdingInfo.name}</title>
         <link rel='icon' href={holdingInfo.logo} />
       </Head>
-        <div className={styles['auth-layout']}>
+        {isClient &&
+         <div className={styles['auth-layout']}>
         <div className={styles['holding-name']}>
         <Image
                 className={styles.img}
@@ -36,7 +55,7 @@ const AuthLayout = ({ children } : Props) => {
         <div className={styles['login-register-fields']}>
          {children}
         </div>
-        </div>
+        </div>}
         </>
      );
 }

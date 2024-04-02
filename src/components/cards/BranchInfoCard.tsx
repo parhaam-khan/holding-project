@@ -6,7 +6,7 @@ import cs from 'classnames';
 const BranchInfoCard = (props:any) => {
   const{branchInfo,tagList} = props;
     return ( 
-        <div className={cs(styles['branch-card'],tagList.length > 1 && styles['card-horizental'])}>
+        <div  className={cs(styles['branch-card'],tagList.length > 1 && styles['card-horizental'])}>
             <div className={cs(styles['branch-img'],tagList.length > 1 && styles['img-horizental'])}>
             <Image
                 className={styles['img']}
@@ -47,7 +47,9 @@ const BranchInfoCard = (props:any) => {
             </div>
             <a href={branchInfo.website} target="_blank">
             <button className={styles['card-btn']}>
+              <p>
            مشاهده سایت شعبه
+              </p>
             </button>
             </a>
         </div>

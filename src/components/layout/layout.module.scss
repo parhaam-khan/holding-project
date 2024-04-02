@@ -1,18 +1,20 @@
 @import "@/styles/mixins";
   
   @include uppermobile() {
-    .main{
-    width: 480px;
+    .main,.footer{
+    width: 480px !important;
     }
     }
   
   
   .navbar {
+    position: relative;
     margin-bottom: 15px;
     .holding-name-logo-notifs {
     height: 56px;
     padding: 10px;
-    background-color: #FCFCFD;
+    background-color: var(--bg-color-1);
+    border-bottom: 1px solid var(--bg-color-2);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -31,11 +33,20 @@
             font-size: 14px;
             font-weight: 700;
             margin-right: 10px;
-            color: #0C111D;
+            color: var(--text-color);
           }
       }
+      .divider{
+        width: 1px;
+        position: absolute;
+        height: 100%;
+        right: 85%;
+        background-color: var(--bg-color-2);
+      }
       .notifs{
-        
+        display: flex;
+        align-items: center;
+        margin-inline-end: 1.3%;
       }
     
     }
@@ -49,6 +60,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    box-shadow: var(--footer-box-shadow);
     .menuItem{
       position: relative;
       display: flex;

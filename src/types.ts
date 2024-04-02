@@ -1,12 +1,16 @@
 import { ReactNode } from "react";
 
 export interface DataHeaders {
-    Authorization: string;
-    'content-type'?: string;
+    Authorization?: string;
+    'Content-Type'?: string;
     Accept?: string;
     'X-VIEWNAME'?: string;
+    'SM-TOKEN'?: string;
   }
 
-  export interface Props {
-    children?: ReactNode
+  export interface LayoutProps {
+    children?: ReactNode,
+    footer?:boolean,
+    loginCheck?:boolean,
+    apiCode?:number
   }
