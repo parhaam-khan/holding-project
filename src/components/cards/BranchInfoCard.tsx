@@ -38,14 +38,14 @@ const BranchInfoCard = (props:any) => {
             <div className={styles['branch-address']}>
             <Image
                 className={styles['location-icon']}
-                src="icons/location-icon.svg"
+                src="icons/location-grey-icon.svg"
                 alt="location icon"
                 width={16}
                 height={16}
               />
              <p>{branchInfo.address}</p>
             </div>
-            <a href={branchInfo.website} target="_blank">
+            <a href={branchInfo.website} className={styles['branch-website-link']} target="_blank">
             <button className={styles['card-btn']}>
               <p>
            مشاهده سایت شعبه
