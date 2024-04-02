@@ -18,6 +18,7 @@ const PurchaseHistoryCard = (props:any) => {
          <div className={styles['sub-title']}>
             {item.merchantName}
          </div>
+         <div className={styles['sub-items']}>
         <div className={styles['item']}>
         <p className={styles.title}>
             مبلغ کل:
@@ -55,6 +56,7 @@ const PurchaseHistoryCard = (props:any) => {
         </p>
         </div>
        
+        </div>
         </div>
         </div>
      );

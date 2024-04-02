@@ -11,22 +11,24 @@ padding-bottom: 100px;
   .main-info {
     display: flex;
     justify-content: space-between;
-    margin: 20px 0;
+    margin-top: 15px;
     .main-info-item {
       width: 48%;
       background-color: var(--bg-card);
-      padding: 15px;
+      padding:10px 15px;
       display: flex;
       flex-direction: column;
       align-items: center;
       border-radius: 10px;
+      .img{
+        height: 45px;
+      }
       .title{
         font-size: 14px;
         font-weight: 600;
         color: #98A2B3;
       }
       .amount{
-        margin-top: 10px;
         .value{
             color: var(--text-color-1);
             font-size: 16px;
@@ -43,7 +45,7 @@ padding-bottom: 100px;
     }
   }
   .purchases{
-    margin-top: 20px;
+    margin-top: 7px;
   }
 }
 .empty{
