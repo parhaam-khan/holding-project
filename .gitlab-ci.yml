@@ -66,7 +66,7 @@ deploy:prod:
     - echo "$GERMAN_PROD_SERVER_SSH_KEY" >> key && chmod 600 key
     - scp -i key -o StrictHostKeyChecking=no new-merch.env ${GERMAN_PROD_SERVER_USER}@${GERMAN_PROD_SERVER_IP}:/opt/app-docker/new-merch.env
     - ssh -i key -o StrictHostKeyChecking=no ${GERMAN_PROD_SERVER_USER}@${GERMAN_PROD_SERVER_IP} 'cd /opt/app-docker && cat new-merch.env >> .env && rm new-merch.env'
-    - ssh -i key -o StrictHostKeyChecking=no ${GERMAN_PROD_SERVER_USER}@${GERMAN_PROD_SERVER_IP} 'cd /opt/app-docker && sleep 20 && docker restart nginx'
+    - ssh -i key -o StrictHostKeyChecking=no ${GERMAN_PROD_SERVER_USER}@${GERMAN_PROD_SERVER_IP} 'cd /opt/app-docker && docker-compose up -d merchant-holding && sleep 20 && docker restart nginx'
     ##V.1.2
     - rm key
   only:
@@ -91,7 +91,7 @@ deploy:stage:
     - echo "MERCHANT_STAGE_IMAGE_NAME=${YB_REGISTRY_ADDRESS}/stage/merchant-holding:$CI_COMMIT_SHA" > new-merch.env
     - scp -o StrictHostKeyChecking=no new-merch.env ${MUPRA_STAGE_SERVER_USER}@${MUPRA_STAGE_SERVER_IP}:/opt/docker-test/new-merch.env
     - ssh -o StrictHostKeyChecking=no ${MUPRA_STAGE_SERVER_USER}@${MUPRA_STAGE_SERVER_IP} 'cd /opt/docker-test && cat new-merch.env >> .env && rm new-merch.env'
-    - ssh -o StrictHostKeyChecking=no ${MUPRA_STAGE_SERVER_USER}@${MUPRA_STAGE_SERVER_IP} 'cd /opt/docker-test && sleep 20 && docker restart nginx'
+    - ssh -o StrictHostKeyChecking=no ${MUPRA_STAGE_SERVER_USER}@${MUPRA_STAGE_SERVER_IP} 'cd /opt/docker-test && docker-compose up -d merchant-holding && sleep 20 && docker restart nginx'
   tags:
     -  yottab
   only:
