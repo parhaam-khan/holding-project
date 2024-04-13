@@ -76,11 +76,21 @@
         p{
             font-size: 14px;
             font-weight: 600;
+            color:#344054;
         }
         :nth-child(2){
-            color: #49D4AE;
-            margin-right: 5px;
+            p{
+                color: #49D4AE;
+                margin-right: 5px;
+            }
+          
         }
+    }
+    .back-home{
+        margin-top: 10px;
+        font-size: 14px;
+        font-weight: 600;
+        color:#49D4AE;
     }
         .success-register-text{
             p{

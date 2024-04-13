@@ -66,7 +66,7 @@ export default function Home(props:any) {
         subMerchants?.map((item:any,idx:number) => (
           <div className={styles['branch-section']} key={idx + 1}>
              <div className={styles['header-horizental']}>
-               <span className={styles['category-name']}>{item.tag}</span>
+               {!isEmpty(item.subMerchantList) && <span className={styles['category-name']}>{item.tag}</span>}
             {!isEmpty(item.subMerchantList) && item.subMerchantList.length > 1 &&
           <span className={styles['show-all-text']}>مشاهده همه</span>
             }

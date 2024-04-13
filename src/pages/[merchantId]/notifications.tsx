@@ -11,11 +11,12 @@ import { useSelector } from "react-redux";
 import Link from "next/link";
 import { baseUrl } from "@/services/apiUrl";
 import { useSnackbar } from "notistack";
+import Head from "next/head";
 
 const Notifications = () => {
   const router = useRouter();
   const { enqueueSnackbar } = useSnackbar();
-  // const[holdingInfo,setHoldingInfo] = useState<{[key:string]:any}>({});
+  const holdingInfo = useSelector((state:any) => state.holding.holdingInfo);
   const merchantId = useSelector((state: any) => state.holding.holdingInfo.id);
   const [notifInfo, setNotifInfo] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -41,6 +42,13 @@ const Notifications = () => {
   };
 
   return (
+    <>
+    <Head>
+    <title>{holdingInfo?.name}</title>
+    <meta name="description" content={holdingInfo?.description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href={holdingInfo.logo} />
+  </Head>
     <Layout>
       {loading ? <LoadingCircle /> : ""}
       <div className={styles.notifs}>
@@ -52,7 +60,7 @@ const Notifications = () => {
           <p className={styles.title}>اطلاع رسانی</p>
         </div>
         <div className={styles.notifList}>
-          {!isEmpty(notifInfo) &&
+          {!isEmpty(notifInfo) ?
             notifInfo.map((item: any) => (
               <div key={item.id} className={styles.notif}>
                 <div className={styles["img"]}>
@@ -76,10 +84,18 @@ const Notifications = () => {
                   <p className={styles["created-date"]}>زمان ایجاد پیام</p>
                 </div>
               </div>
-            ))}
+            ))  
+          :
+          <div className={styles.empty}>
+            <p className={styles["main-title"]}>
+              هیچ پیامی موجود نیست
+            </p>
+          </div>
+          }
         </div>
       </div>
     </Layout>
+    </>
   );
 };
 
