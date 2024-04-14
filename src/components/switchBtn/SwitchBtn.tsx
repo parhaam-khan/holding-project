@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styles from './switchBtn.module.scss'
+import styles from './SwitchBtn.module.scss'
 import { useDispatch, useSelector } from 'react-redux';
 import { darkModeToggle } from '@/features/holding/holdingSlice';
 
