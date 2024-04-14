@@ -3,12 +3,14 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 interface InitialState {
     holdingInfo : {} | null ,
-    errorMsg:string
+    errorMsg:string,
+    darkMode: boolean
 }
 
 const initialState: InitialState = {
     holdingInfo : {} ,
-    errorMsg:''
+    errorMsg:'',
+    darkMode: typeof window !== 'undefined' && localStorage.getItem('themeMode') ? (localStorage.getItem('themeMode') === 'dark' ? true : false) : false
 }
 
 export const fetchHoldingInfo = createAsyncThunk('holding/fetchHolding',async (id:any,{rejectWithValue,fulfillWithValue}) => {
@@ -34,7 +36,11 @@ export const holdingSlice = createSlice({
         })
     }
     ,
-    reducers:{}
+    reducers:{
+        darkModeToggle(state,action) {
+            state.darkMode = action.payload || !(state.darkMode)
+          },
+    }
 })
-
+export const { darkModeToggle } = holdingSlice.actions
 export default holdingSlice.reducer;

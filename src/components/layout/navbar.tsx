@@ -5,17 +5,11 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import Link from 'next/link';
+import SwitchBtn from '@/components/switchBtn/SwitchBtn';
 
 const Navbar = () => {
     const holdingInfo = useSelector((state:any) => state.holding.holdingInfo);
     const router = useRouter()
-    // const[holdingInfo,setHoldingInfo] = useState<{[key: string]: any}>({});
-
-
-    // useEffect(() => {
-    //     const data = JSON.parse(localStorage.getItem('holdingInfo')  || '{}') 
-    //     setHoldingInfo(data)
-    // },[])
 
     return ( 
         <div className={styles.navbar}>
@@ -34,6 +28,11 @@ const Navbar = () => {
                 <h1 className={styles['merchant-name']}>
                     {holdingInfo?.name}
                 </h1>
+                </div>
+                <div className={styles['dark-mode-btn']}>
+                    <p className={styles.dark}>تیره</p>
+                 <SwitchBtn/>
+                 <p className={styles.light}>روشن</p>
                 </div>
                 <div className={styles.divider}></div>
          <div className={styles.notifs} onClick={() => router.push(`/${holdingInfo.id}/notifications`)}>

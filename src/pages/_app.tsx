@@ -10,11 +10,6 @@ import { Provider } from 'react-redux';
 export default function App({ Component, pageProps }: AppProps) {
   const {store} = wrapper.useWrappedStore(pageProps);
 
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    localStorage.setItem('theme', 'dark')
-  },[])
-
   return (
     <Provider store={store}>
       <SnackbarProvider>

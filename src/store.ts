@@ -3,7 +3,6 @@ import  holdingReducer  from "./features/holding/holdingSlice";
 import  userReducer  from "./features/user/userSlice";
 import { HYDRATE, createWrapper } from "next-redux-wrapper";
 import { nextReduxCookieMiddleware, wrapMakeStore } from "next-redux-cookie-wrapper";
-import { TypedUseSelectorHook, useSelector } from "react-redux";
 
 
 //using REDUX TOOLKIT and NEXT-REDUX-WRAPPER
@@ -33,7 +32,7 @@ const combinedReducer = combineReducers({
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware().prepend(
         nextReduxCookieMiddleware({
-          subtrees: ["holding.holdingInfo","user.userInfo"], // for save data in cookie with redux-cookie-wrapper
+          subtrees: ["holding.holdingInfo","holding.darkMode","user.userInfo"], // for save data in cookie with redux-cookie-wrapper
         })
       ),
       devTools: true,

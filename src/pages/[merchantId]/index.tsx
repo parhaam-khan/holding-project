@@ -14,24 +14,16 @@ import { fetchHoldingInfo } from '@/features/holding/holdingSlice'
 import { useSelector, useStore } from 'react-redux'
 
 export default function Home(props:any) {
+  //  console.log(props);
    console.log('State on render', useSelector((state:any) => state.holding));
      const{initialState:{holding}} = props;
-   
-    //  console.log(props);
     const[holdingInfo,setHoldingInfo] = useState(holding?.holdingInfo ?? {});
     const[subMerchants,setSubMerchants] = useState(holding?.holdingInfo?.subMerchantTagVOS ?? []);
  const[showFilterList,setShowFilterList] = useState({
     show:false,
     type:''
  });
-//  console.log(showFilterList);
-// console.log(props);
 
-// useEffect(() => {
-//   if(holding.holdingInfo){
-//     localStorage.setItem('holdingInfo', JSON.stringify(holdingInfo));
-//   }
-// },[props])
 
   const showFilterListHandler = (type:string) => {
     setShowFilterList({...showFilterList,show:true,type})
