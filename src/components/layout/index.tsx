@@ -7,7 +7,7 @@ import useAuth from '@/hooks/useAuth'
 import { useRouter } from 'next/router'
 import { useDispatch, useSelector } from 'react-redux'
 import { isEmpty } from '@/helper'
-import { fetchHoldingInfo } from '@/features/holding/holdingSlice'
+import { darkModeToggle, fetchHoldingInfo } from '@/features/holding/holdingSlice'
 
 
 
@@ -18,13 +18,14 @@ export default function Layout({
   apiCode // api code like 403,500,404,etc. (for requests that execute within redux)
 } : LayoutProps) {
   const router = useRouter();
-  const merchantId = router.query.merchantId 
+  const merchantId = router.query.merchantId;
   const dispatch = useDispatch<any>();
-
   const{isLogin,validateToken} = useAuth();
   const [isClient, setIsClient] = useState(false) // for handling hydration error
   const holdingInfo = useSelector((state:any) => state.holding.holdingInfo);
+  const checked = useSelector((state:any) => state.holding.darkMode);
 
+  
 
   //checking existing token
  useEffect(() => {
@@ -52,6 +53,24 @@ export default function Layout({
         validateToken(apiCode)
       }
     },[apiCode])
+
+    useEffect(() => {
+      console.log('cheeecked');
+      if(checked){
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('themeMode', 'dark')
+      }else{
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('themeMode', 'light')
+      }
+    
+    },[checked])
+
+    // useEffect(() => {
+    //    const theme = localStorage.getItem('themeMode') || ''
+    //     document.documentElement.setAttribute('data-theme', theme);
+    //     dispatch(darkModeToggle(theme === 'dark' ? true : false))
+    // },[])
 
 
   return (

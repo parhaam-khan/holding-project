@@ -1,7 +1,7 @@
 .branch-card {
   position: relative;
   width: 100%;
-  height: 265px;
+  height: 272px;
   background-color: var(--bg-card);
   margin-bottom: 5px;
   padding: 5px 5px 15px 5px;
@@ -18,10 +18,10 @@
     position: relative;
     height: 136px;
     &.img-horizental {
-      // width: 280px;
+       width: 80vw;
     }
     .img {
-      object-fit: contain;
+      object-fit: cover;
       border-radius: 5px;
       -webkit-border-radius: 5px;
       -moz-border-radius: 5px;
@@ -55,7 +55,7 @@
     }
   }
   .branch-title {
-    margin-top: 5px;
+    margin-top: 8px;
     margin-inline-start: 10px;
     h2 {
       font-size: 14px;
@@ -64,6 +64,7 @@
     }
   }
   .branch-address {
+    margin-top: 5px;
     display: flex;
     height: 40px;
     margin-bottom: 10px;
@@ -85,7 +86,7 @@
   justify-content: center;
     .card-btn {
       width: 95%;
-      padding: 6px 5px 4px;
+      padding: 7px 5px 4px;
       background-color: var(--bg-color-1);
       border: 1px solid var(--border-color);
       color: var(--text-color-1);

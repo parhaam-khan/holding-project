@@ -53,14 +53,14 @@ useEffect(() => {
             پروفایل کاربری
             </div>
             <div className={styles['profile-info-menu']}>
-             <Image
+             {/* <Image
              className={styles['user-icon']}
                 src={'../icons/user-profile-icon.svg'}
                 alt='user icon'
                 width={80}
                 height={80}
                 priority
-                />
+                /> */}
                 <div className={styles['user-info']}>
                   <div className={styles.name}>
                     <p>
@@ -77,29 +77,6 @@ useEffect(() => {
                   </div>
                 </div>
                 <div className={styles['profile-menu']}>
-                <div className={styles['menu-item']} onClick={() =>  router.push(`/${holdingInfo.id}/profile/creditcard`)}>
-                    <div className={styles['title']}>
-                    <Image
-                src={ '../icons/credit-card-icon.svg'}
-                alt='credit card icon'
-                width={24}
-                height={24}
-                priority
-                />
-                <p>
-                    کارت اعتباری
-                </p>
-                    </div>
-                    <span className={styles.arrow}>
-                    <Image
-                src={ '../icons/arrow-icon.svg'}
-                alt='arrow icon'
-                width={16}
-                height={16}
-                priority
-                />
-                </span>
-                </div>
                 <div className={styles['menu-item']} onClick={() =>  router.push(`/${holdingInfo.id}/profile/customer-club`)}>
                     <div className={styles['title']}>
                     <Image
@@ -138,6 +115,30 @@ useEffect(() => {
                     </div>
                 
                 </div>
+                <div className={styles['menu-item']} onClick={() =>  router.push(`/${holdingInfo.id}/profile/creditcard`)}>
+                    <div className={styles['title']}>
+                    <Image
+                src={ '../icons/credit-card-icon.svg'}
+                alt='credit card icon'
+                width={24}
+                height={24}
+                priority
+                />
+                <p>
+                  خرید کارت اعتباری
+                </p>
+                    </div>
+                    <span className={styles.arrow}>
+                    <Image
+                src={ '../icons/arrow-icon.svg'}
+                alt='arrow icon'
+                width={16}
+                height={16}
+                priority
+                />
+                </span>
+                </div>
+               
                 <div className={styles['menu-item']}>
                     <div className={styles['title']} onClick={() => router.push(`/${holdingInfo.id}/about`)}>
                     <Image

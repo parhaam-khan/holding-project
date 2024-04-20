@@ -11,11 +11,13 @@ import OTPInput from "react-otp-input";
 import Image from "next/image";
 import cs from 'classnames';
 import { useSnackbar } from "notistack";
+import Link from "next/link";
+import { useSelector } from "react-redux";
 
 const Otp = () => {
+    const merchantId = useSelector((state:any) => state.holding.holdingInfo.id);
     const { enqueueSnackbar } = useSnackbar();
     const router = useRouter();
-    const{isLogin} = useAuth();
     const[otpCode,setOtpCode] = useState('');
     const[password,setPassword] = useState('');
     const[showPass,setShowPass] = useState(false)
@@ -100,6 +102,11 @@ const Otp = () => {
                 تایید شماره موبایل
                </button>
            </div>
+           <Link href={`/${merchantId}`} className={styles['back-home']}>
+                <p>
+                 بازگشت به صفحه اصلی
+                </p>
+            </Link>
        </div>
        </AuthLayout>
      );

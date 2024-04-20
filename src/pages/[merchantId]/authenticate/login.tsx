@@ -140,6 +140,11 @@ const Login = () => {
                 </p>
             </Link>
         </div>
+        <Link href={`/${merchantId}`} className={styles['back-home']}>
+                <p>
+                 بازگشت به صفحه اصلی
+                </p>
+            </Link>
         </div>
         </AuthLayout>
      );

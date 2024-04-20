@@ -34,7 +34,23 @@
             font-weight: 700;
             margin-right: 10px;
             color: var(--text-color);
-          }
+          } 
+      }
+      .dark-mode-btn{
+        display: flex;
+        align-items: center;
+       line-height: 0;
+       p{
+        font-size: 13px;
+        font-weight: 600;
+       color: var(--text-color);
+       }
+       .dark{
+        margin-left: 3px;
+       }
+       .light{
+        margin-right: 3px;
+       }
       }
       .divider{
         width: 1px;

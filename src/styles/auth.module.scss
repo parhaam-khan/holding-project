@@ -7,6 +7,7 @@
     p{
         font-size: 20px;
         font-weight: 700;
+        color: var(--text-color);
     }
     }
     .sub-title{
@@ -62,7 +63,7 @@
             font-size: 14px;
             font-weight: 600;
             background-color: #2E73CE;
-            color: #fff;
+            color: #fcfcfd;
             border-radius: 10px;
             -webkit-border-radius: 10px;
             -moz-border-radius: 10px;
@@ -76,11 +77,21 @@
         p{
             font-size: 14px;
             font-weight: 600;
+            color:#344054;
         }
         :nth-child(2){
-            color: #49D4AE;
-            margin-right: 5px;
+            p{
+                color: #49D4AE;
+                margin-right: 5px;
+            }
+          
         }
+    }
+    .back-home{
+        margin-top: 10px;
+        font-size: 14px;
+        font-weight: 600;
+        color:#49D4AE;
     }
         .success-register-text{
             p{
