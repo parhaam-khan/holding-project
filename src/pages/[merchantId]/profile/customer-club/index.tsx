@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useMemo, useState } from "react";
 import backIcon from "../../../../../public/icons/back-icon.svg";
+import backDarkIcon from "../../../../../public/icons/back-dark-icon.svg";
 import coinIcon from "../../../../../public/icons/coin-icon.svg";
 import discountIcon from "../../../../../public/icons/discount-raw-icon.svg";
 import clockIcon from "../../../../../public/icons/clock-icon.svg";
@@ -17,8 +18,10 @@ import { API } from "@/services/request-http";
 import LoadingCircle from "@/components/loading/loading-circle";
 import moment from "jalali-moment";
 import { useSnackbar } from "notistack";
+import useTheme from "@/hooks/useTheme";
 
 const CustomerClub = () => {
+  const{theme} = useTheme();
   const router = useRouter();
   const { validateToken } = useAuth();
   const { enqueueSnackbar } = useSnackbar();
@@ -194,7 +197,11 @@ const CustomerClub = () => {
       <div className={styles["customer-club"]}>
         <div className={styles["main-title"]}>
           <Link href={`/${merchantId}/profile`} className={styles.back}>
+          {theme === 'dark'?
+            <Image src={backDarkIcon} alt="back icon" width={24} height={24} />
+            :
             <Image src={backIcon} alt="back icon" width={24} height={24} />
+             }
             <p>بازگشت</p>
           </Link>
           <p className={styles.title}>باشگاه مشتریان</p>

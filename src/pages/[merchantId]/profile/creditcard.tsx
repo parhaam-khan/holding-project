@@ -5,7 +5,8 @@ import styles from '@/styles/creditcard.module.scss'
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import backIcon from '../../../../public/icons/back-icon.svg'
+import backIcon from '../../../../public/icons/back-icon.svg';
+import backDarkIcon from "../../../../public/icons/back-dark-icon.svg";
 import FilterBtn from '@/components/buttons/FilterBtn';
 import CreditcardDetail from '@/components/cards/CreditcardDetail';
 import { isEmpty } from '@/helper';
@@ -13,13 +14,14 @@ import { useSelector } from 'react-redux';
 import LoadingCircle from '@/components/loading/loading-circle';
 import Link from 'next/link';
 import { useSnackbar } from 'notistack';
+import useTheme from '@/hooks/useTheme';
 
 const CreditCard = () => {
+  const{theme} = useTheme();
     const{validateToken} = useAuth();
     const { enqueueSnackbar } = useSnackbar();
     const router = useRouter();
     const[loading,setLoading] = useState(true);
-    // const[holdingInfo,setHoldingInfo] = useState<{[key:string]:any}>({});
     const holdingInfo = useSelector((state:any) => state.holding.holdingInfo);
     const merchantId = useSelector((state:any) => state.holding.holdingInfo.id);
 
@@ -56,12 +58,11 @@ const CreditCard = () => {
  <div className={styles.creditcard}>
    <div className={styles['main-title']}>
    <Link href={`/${merchantId}/profile`} className={styles.back}>
-   <Image
-                src={backIcon}
-                alt="back icon"
-                width={24}
-                height={24}
-              />
+   {theme === 'dark'?
+            <Image src={backDarkIcon} alt="back icon" width={24} height={24} />
+            :
+            <Image src={backIcon} alt="back icon" width={24} height={24} />
+             }
               <p>
                 بازگشت
               </p>

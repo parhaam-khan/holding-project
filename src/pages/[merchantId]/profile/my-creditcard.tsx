@@ -6,17 +6,18 @@ import useAuth from "@/hooks/useAuth";
 import Layout from "@/components/layout";
 import Image from "next/image";
 import backIcon from '../../../../public/icons/back-icon.svg';
+import backDarkIcon from "../../../../public/icons/back-dark-icon.svg";
 import { isEmpty, separateToCardNumber, thousandSeperator } from "@/helper";
 import { useSelector } from "react-redux";
 import LoadingCircle from "@/components/loading/loading-circle";
 import Link from "next/link";
 import { useSnackbar } from "notistack";
+import useTheme from "@/hooks/useTheme";
 
 const MyCreditcard = () => {
+  const{theme} = useTheme();
     const router = useRouter();
     const { enqueueSnackbar } = useSnackbar();
-    // const{isLogin} = useAuth();
-    // const[holdingInfo,setHoldingInfo] = useState<{[key:string]:any}>({});
     const[loading,setLoading] = useState(true);
     const merchantId = useSelector((state:any) => state.holding.holdingInfo.id);
     const holdingName = useSelector((state:any) => state.holding.holdingInfo.name);
@@ -51,12 +52,11 @@ useEffect(() => {
         <div className={styles['my-credit-card']}>
             <div className={styles['main-title']}>
     <Link href={`/${merchantId}/profile/creditcard`} className={styles.back}>
-   <Image
-                src={backIcon}
-                alt="back icon"
-                width={24}
-                height={24}
-              />
+    {theme === 'dark'?
+            <Image src={backDarkIcon} alt="back icon" width={24} height={24} />
+            :
+            <Image src={backIcon} alt="back icon" width={24} height={24} />
+             }
               <p>
                 بازگشت
               </p>
