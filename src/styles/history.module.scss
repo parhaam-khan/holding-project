@@ -19,7 +19,11 @@ padding-bottom: 100px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      border-radius: 10px;
+      border-radius: 8px;
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+      -ms-border-radius: 8px;
+      -o-border-radius: 8px;
       .img{
         height: 45px;
       }

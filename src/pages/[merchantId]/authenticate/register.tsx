@@ -10,13 +10,16 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import { useSnackbar } from "notistack";
+import { isEmpty } from "@/helper";
+import LoadingCircle from "@/components/loading/loading-circle";
 
 
 const Register = () => {
     const router = useRouter();
     const { enqueueSnackbar } = useSnackbar();
     const merchantId = useSelector((state:any) => state.holding.holdingInfo.id);
-
+    const[textFieldError,setTextFieldError] = useState<{[key:string]:string}>({});
+    const[loading,setLoading] = useState(false);
     // const{isLogin} = useAuth();
     const[state,setState] = useState<{
         msisdn:string,
@@ -35,28 +38,49 @@ const Register = () => {
         setState({...state,[e.target.name]: e.target.value})
         }
 
-        const registerHandler = async() => {
-            const dataObj = {
-                msisdn,
+        const valid  = ():any[] => {
+            interface errorTypes {
+                [key:string]: string
             }
-            const header = {
-                'Content-Type':"text/plain"
+            const error:errorTypes = {}
+    
+            if (isEmpty(msisdn)) {
+                error.msisdn = 'لطفا شماره موبایل خود را وارد کنید';
             }
-        const data = JSON.stringify(dataObj);
-        try{
-            const res = await API('register','post',data,header)
-            router.push({
-                pathname: '/authenticate/otp',
-                query: { phoneNum:msisdn }
-            })
-        }catch(err:any){
-            err.response && enqueueSnackbar(err.response.data.message, { variant: 'error'});
+            const textFieldError = Object.keys(error).length > 0 ? true : false
+            return [error, textFieldError]
         }
+
+        const registerHandler = async() => {
+            const [error, textFieldError] = valid();
+            setTextFieldError(error);
+
+            if(!textFieldError){
+                setLoading(() => true)
+                const dataObj = {
+                    msisdn,
+                }
+                const header = {
+                    'Content-Type':"text/plain"
+                }
+            const data = JSON.stringify(dataObj);
+            try{
+                const res = await API('register','post',data,header)
+                router.push({
+                    pathname: `/${merchantId}/authenticate/otp`,
+                    query: { phoneNum:msisdn }
+                })
+            }catch(err:any){
+                setLoading(false)
+                err.response && enqueueSnackbar(err.response.data.message, { variant: 'error'});
+            }
+            }
         }
 
 
     return ( 
         <AuthLayout>
+        {loading ? <LoadingCircle/> : ''}
          <div className={styles.login}>
             <div className={styles.title}>
                 <p>
@@ -68,11 +92,13 @@ const Register = () => {
             <TextFieldIcon
              inputName="msisdn"
              value={msisdn}
+             handleOnChange={handleOnChange}
+             isError={!isEmpty(textFieldError.msisdn)}
+             errorMsg={textFieldError.msisdn}
              imgSrc="../../icons/phone-icon.svg"
              imgAlt="phone icon"
              label='شماره همراه'
              type="tel"
-             handleOnChange={handleOnChange}
              />
             </div>
             </div>
