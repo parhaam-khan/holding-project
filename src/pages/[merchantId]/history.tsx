@@ -31,7 +31,6 @@ const[showFilterList,setShowFilterList] = useState({
 
 useEffect(() => {
   if(merchantId){
-    console.log('id accessss');
     initialApi(merchantId)
   }
    },[merchantId])
@@ -145,7 +144,7 @@ useEffect(() => {
             </div>
             <div className={styles['empty-icon']}>
             <Image
-                src={'icons/empty-history-icon.svg'}
+                src={'../icons/empty-history-icon.svg'}
                 alt='icon'
                 width={128}
                 height={128}

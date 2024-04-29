@@ -34,7 +34,7 @@ useEffect(() => {
 
   const logOutUserHandler = () => {
     localStorage.removeItem('token')
-    router.push(`${holdingInfo.id}`)
+    router.push(`/${holdingInfo.id}`)
   }
 
 
@@ -64,14 +64,17 @@ useEffect(() => {
                 <div className={styles['user-info']}>
                   <div className={styles.name}>
                     <p>
+                        <span style={{marginLeft:"5px"}}>
                      {userInfo?.fullName}
+                        </span>
+                     {userInfo.msisdn && `(${'0' + userInfo.msisdn.slice(2)})`}
                     </p>
                   </div>
                   <div className={styles['date-of-membership']}>
                     <p>
                     تاریخ عضویت:
                    <span style={{marginInlineStart:"3px"}}>
-                     {userInfo?.createdDate && moment(userInfo.createdDate).locale("fa").format('jDD jMMMM jYYYY')} 
+                     {userInfo?.createdDate ? moment(userInfo.createdDate).locale("fa").format('jDD jMMMM jYYYY') : "-----"} 
                    </span>
                     </p>
                   </div>
@@ -139,8 +142,8 @@ useEffect(() => {
                 </span>
                 </div>
                
-                <div className={styles['menu-item']}>
-                    <div className={styles['title']} onClick={() => router.push(`/${holdingInfo.id}/about`)}>
+                <div className={styles['menu-item']} onClick={() => router.push(`/${holdingInfo.id}/about`)}>
+                    <div className={styles['title']}>
                     <Image
                 src={ '../icons/about-icon.svg'}
                 alt='about icon'
@@ -196,7 +199,7 @@ useEffect(() => {
                   -------
                 </p>
                 </div> */}
-                <div className={styles['menu-item-extra']}>
+                <a href={`tel:${holdingInfo.phone}`} className={styles['menu-item-extra']}>
                 <div className={styles['title']}>
                     <Image
                 src={ '../icons/contact-us-icon.svg'}
@@ -212,7 +215,7 @@ useEffect(() => {
                 <p className={styles['info-text']}>
                   {holdingInfo.phone}
                 </p>
-                </div>
+                </a>
             </div>
          
         </div>

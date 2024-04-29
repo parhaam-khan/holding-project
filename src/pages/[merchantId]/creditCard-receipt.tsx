@@ -163,7 +163,7 @@ const CreditCardReceipt = () => {
        </div>
        <div className={styles['fail-desc']}>
        <p>
-        در صورت کسر مبلغ از حساب شما، تا 72 ساعت آینده مبلغ پرداختی از طریق بانک بازگشت خواهد شد.
+        در صورت کسر مبلغ از حساب شما، تا 72 ساعت آینده مبلغ پرداختی از طریق بانک باز خواهد گشت.
        </p>
        </div>
            <div style={{marginTop:"15px"}} className={styles.backBtn}>
