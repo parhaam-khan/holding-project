@@ -47,7 +47,7 @@ const CreditCard = () => {
             }catch(err:any){
                 // console.log(err);
                 err.response && validateToken(err.response.status);
-                err.response && enqueueSnackbar(err.response.data.message, { variant: 'error'});
+                err.response && enqueueSnackbar(err.response.data.message, { variant: 'error',hideIconVariant:true});
                 setLoading(false)
             }
           }

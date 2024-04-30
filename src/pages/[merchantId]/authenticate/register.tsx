@@ -72,7 +72,7 @@ const Register = () => {
                 })
             }catch(err:any){
                 setLoading(false)
-                err.response && enqueueSnackbar(err.response.data.message, { variant: 'error'});
+                err.response && enqueueSnackbar(err.response.data.message, { variant: 'error',hideIconVariant:true});
             }
             }
         }
