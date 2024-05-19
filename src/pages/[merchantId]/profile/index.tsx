@@ -90,7 +90,7 @@ useEffect(() => {
                 priority
                 />
                 <p>
-                     باشکاه مشتریان
+                     باشگاه مشتریان
                 </p>
                     </div>
                     <div style={{display:"flex",alignItems:"center"}}>
