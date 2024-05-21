@@ -55,7 +55,7 @@ export default function Layout({
     },[apiCode])
 
     useEffect(() => {
-      console.log('cheeecked');
+      // console.log('cheeecked');
       if(checked){
         document.documentElement.setAttribute('data-theme', 'dark');
         localStorage.setItem('themeMode', 'dark')

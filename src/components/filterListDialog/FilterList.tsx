@@ -6,7 +6,7 @@ import Checkbox from '../buttons/Checkbox';
 const FilterList = (props:any) => {
     const{type,setShowFilterList,listItem,mainInfo,showFilterList,setData} = props;
     const[choosedFilters,setChoosedFilters] = useState([])
-    console.log(choosedFilters);
+    // console.log(choosedFilters);
     //  console.log(choosedFilters);
  const overlayRef = useRef<HTMLInputElement>(null)
 

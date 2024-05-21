@@ -7,7 +7,7 @@
     p{
         font-size: 20px;
         font-weight: 700;
-        color: var(--text-color);
+        color: #344054;
     }
     }
     .sub-title{
@@ -23,12 +23,16 @@
     .inputs{
         width: 90%;
         .text-field{
-            margin: 10px 2.5px 20px 2.5px;
+            margin: 10px 2.5px 10px 2.5px;
             .fotget-pass-text{
                 text-align: left;
                 margin-top: 5px;
                 color: #2E73CE;
                 font-size: 12px;
+                font-weight: 600;
+                p{
+                    display: inline;
+                }
             }
         }
     }
@@ -44,11 +48,15 @@
             width: 50px !important;
             height: 50px;
             border: 1px solid #EAECF0;
-            border-radius: 10px;
             font-size: 18px;
             font-weight: 700;
             margin-left: 5px;
-        }
+            border-radius: 8px;
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            -ms-border-radius: 8px;
+            -o-border-radius: 8px;
+}
         input:focus{
             outline: none;
         }
@@ -60,15 +68,16 @@
         button{
             width: 90%;
             padding: 10px;
+            margin-top: 15px;
             font-size: 14px;
             font-weight: 600;
             background-color: #2E73CE;
             color: #fcfcfd;
-            border-radius: 10px;
-            -webkit-border-radius: 10px;
-            -moz-border-radius: 10px;
-            -ms-border-radius: 10px;
-            -o-border-radius: 10px;
+            border-radius: 8px;
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            -ms-border-radius: 8px;
+            -o-border-radius: 8px;
 }
     }
     .register-text{
@@ -87,8 +96,13 @@
           
         }
     }
+    .footer-buttons{
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+    }
     .back-home{
-        margin-top: 10px;
+        margin-top: 15px;
         font-size: 14px;
         font-weight: 600;
         color:#49D4AE;
@@ -107,10 +121,39 @@
             justify-content: center;
             padding: 10px;
             border: 1px solid #EAECF0;
-            border-radius: 10px;
             font-size: 14px;
             font-weight: 600;
             color: #475467;
+            border-radius: 8px;
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+            -ms-border-radius: 8px;
+            -o-border-radius: 8px;
+}
+        .send-code{
+            margin-top: 10px;
+            .send-code-text{
+                display: flex;
+                align-items: center;
+                p{
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: #344054;
+                    line-height: 10px;
+                }
+                .timer{
+                    padding: 10px;
+                    margin-right: 10px;
+                    background-color: #EAECF0;
+                    font-family: 'iranyekan';
+                    line-height: 10px;
+                    border-radius: 8px;
+                    -webkit-border-radius: 8px;
+                    -moz-border-radius: 8px;
+                    -ms-border-radius: 8px;
+                    -o-border-radius: 8px;
+}
+            }
         }
 }
 

@@ -4,6 +4,7 @@ import styles from "@/styles/notifs.module.scss";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import backIcon from "../../../public/icons/back-icon.svg";
+import backDarkIcon from "../../../public/icons/back-dark-icon.svg";
 import Layout from "@/components/layout";
 import { isEmpty } from "@/helper";
 import LoadingCircle from "@/components/loading/loading-circle";
@@ -12,8 +13,10 @@ import Link from "next/link";
 import { baseUrl } from "@/services/apiUrl";
 import { useSnackbar } from "notistack";
 import Head from "next/head";
+import useTheme from "@/hooks/useTheme";
 
 const Notifications = () => {
+  const{theme} = useTheme();
   const router = useRouter();
   const { enqueueSnackbar } = useSnackbar();
   const holdingInfo = useSelector((state:any) => state.holding.holdingInfo);
@@ -36,7 +39,7 @@ const Notifications = () => {
       setNotifInfo(resultList);
       setLoading(false);
     } catch (err: any) {
-      err.response && enqueueSnackbar(err.response.data.message, { variant: 'error'});
+      err.response && enqueueSnackbar(err.response.data.message, { variant: 'error',hideIconVariant:true});
       setLoading(false);
     }
   };
@@ -54,7 +57,11 @@ const Notifications = () => {
       <div className={styles.notifs}>
         <div className={styles["main-title"]}>
           <Link href={`/${merchantId}`} className={styles.back}>
+            {theme === 'dark'?
+            <Image src={backDarkIcon} alt="back icon" width={24} height={24} />
+            :
             <Image src={backIcon} alt="back icon" width={24} height={24} />
+             }
             <p>بازگشت</p>
           </Link>
           <p className={styles.title}>اطلاع رسانی</p>

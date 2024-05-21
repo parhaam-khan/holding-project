@@ -40,7 +40,7 @@ const Otp = () => {
         localStorage.setItem('token', res?.data?.token);
          router.push(`/authenticate/success-register`)
     }catch(err:any){
-        err.response && enqueueSnackbar(err.response.data.message, { variant: 'error'});
+        err.response && enqueueSnackbar(err.response.data.message, { variant: 'error',hideIconVariant:true});
     }
     }
 

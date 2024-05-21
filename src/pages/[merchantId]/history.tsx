@@ -31,7 +31,6 @@ const[showFilterList,setShowFilterList] = useState({
 
 useEffect(() => {
   if(merchantId){
-    console.log('id accessss');
     initialApi(merchantId)
   }
    },[merchantId])
@@ -50,7 +49,7 @@ useEffect(() => {
        setLoading(false)
    }catch(err:any){
        err.response && validateToken(err.response.status)
-       err.response && enqueueSnackbar(err.response.data.message, { variant: 'error'});
+       err.response && enqueueSnackbar(err.response.data.message, { variant: 'error',hideIconVariant:true});
        setLoading(false)
    }
  }
@@ -145,7 +144,7 @@ useEffect(() => {
             </div>
             <div className={styles['empty-icon']}>
             <Image
-                src={'icons/empty-history-icon.svg'}
+                src={'../icons/empty-history-icon.svg'}
                 alt='icon'
                 width={128}
                 height={128}

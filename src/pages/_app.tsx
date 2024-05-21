@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <Provider store={store}>
-      <SnackbarProvider>
+      <SnackbarProvider autoHideDuration={3000}>
     <Component {...pageProps} />
     </SnackbarProvider>
     </Provider>

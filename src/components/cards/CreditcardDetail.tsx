@@ -21,7 +21,7 @@ const CreditcardDetail = (props:any) => {
             const{data:{result}} = res;
             window.location.href= result?.link
         }catch(err:any){
-            err.response && enqueueSnackbar(err.response.data.message, { variant: 'error'});
+            err.response && enqueueSnackbar(err.response.data.message, { variant: 'error',hideIconVariant:true});
         }
     }
 

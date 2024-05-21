@@ -24,14 +24,16 @@ const TextFieldIcon = (props:any) => {
     return ( 
         <>
         <div className={cs(styles["text-field-icon"],isError && styles.error)}>
-            <Image
-                className={styles.icon}
-                src={imgSrc}
-                alt={imgAlt}
-                width={imgWidth || 24}
-                height={imgHeight ||24}
-                priority
-              />
+           {imgSrc && 
+              <Image
+              className={styles.icon}
+              src={imgSrc}
+              alt={imgAlt}
+              width={imgWidth || 24}
+              height={imgHeight ||24}
+              priority
+            />
+           }
                 <input
                  name={inputName}
                 type={type || "text"} 

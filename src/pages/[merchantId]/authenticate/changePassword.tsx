@@ -11,34 +11,48 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import LoadingCircle from "@/components/loading/loading-circle";
 import { useSelector, useStore } from "react-redux";
+import moment from "jalali-moment";
 import { isEmpty } from "@/helper";
 
-const Login = () => {
+const ChangePassword = () => {
     const router = useRouter();
     console.log('State on render', useStore().getState());
     const merchantId = useSelector((state:any) => state.holding.holdingInfo.id);
+    const[textFieldError,setTextFieldError] = useState<{[key:string]:string}>({});
     const[showPass,setShowPass] = useState(false);
     const[loading,setLoading] = useState(false);
-    const[textFieldError,setTextFieldError] = useState<{[key:string]:string}>({});
+    const [minutes, setMinutes] = useState(0);
+    const [seconds, setSeconds] = useState(0);
+
+const deadlineTime = moment().add(2,'m').add(2,'s').toDate()
+
+    const getTime = (deadline:any) => {
+        const time = Date.parse(deadline) - Date.now();
+       if(time > 0) {
+        setMinutes(Math.floor((time / 1000 / 60) % 60));
+        setSeconds(Math.floor((time / 1000) % 60));
+       }
+      };
+
+    useEffect(() => {
+            const interval = setInterval(() => getTime(deadlineTime), 1000);
+            return () => clearInterval(interval);
+      }, []);
+
     const[apiError,setApiError] = useState({
         isError:false,
         errorMsg:""
     });
     // console.log(loading);
     const[state,setState] = useState<{
-        msisdn:string,
-        password:string
+        code:string,
+        password:string,
     }>({
-        msisdn:"",
-        password:""
+        code:"",
+        password:"",
     })
-    const{msisdn,password} = state;
+    const{code,password} = state;
     const{isError,errorMsg} = apiError;
-
-    // useEffect(() => {
-    //     const data = JSON.parse(localStorage.getItem('holdingInfo')  || '{}') 
-    //         setMerchantId(data.id)
-    // },[])
 
     const handleOnChange = (e:any) => {
     setState({...state,[e.target.name]: e.target.value})
@@ -54,32 +68,31 @@ const Login = () => {
         }
         const error:errorTypes = {}
 
-        if (isEmpty(msisdn)) {
-            error.msisdn = 'لطفا شماره موبایل را وارد کنید'
+        if (isEmpty(code)) {
+            error.code = 'لطفا کد پیامک شده را وارد کنید'
         }
         if (isEmpty(password)) {
-            error.password = 'لطفا رمز ورود را وارد کنید';
+            error.password = 'لطفا رمز ورود جدید را وارد کنید';
         }
         const textFieldError = Object.keys(error).length > 0 ? true : false
         return [error, textFieldError]
     }
 
-    const loginHandler = async() => {
+    const changePassHandler = async() => {
         const [error, textFieldError] = valid();
         setTextFieldError(error);
         if(!textFieldError){
-            setLoading(() => true)
+            setLoading(() => true);
             const dataObj = {
-                username:msisdn,
-                password
+                msisdn: router.query.phoneNum,
+                 otp: code,
+                  passwd: password 
             }
         const data = JSON.stringify(dataObj);
         try{
-            const res = await API('login','post',data)
-            const{data:{token}} = res;
-            localStorage.setItem("token",JSON.stringify(token))
-            router.push(`/${merchantId}`)
+            const res = await API('validateWithPassword','post',data)
             setLoading(false)
+            router.push(`/${merchantId}/authenticate/login`)
             if(isError){
                 setApiError({isError: false, errorMsg: ''});
             }
@@ -87,7 +100,7 @@ const Login = () => {
             setApiError({isError: true, errorMsg: err?.response?.data?.message});
             setLoading(false)
         }
-        } 
+        }
     }
 
     return ( 
@@ -96,29 +109,25 @@ const Login = () => {
         <div className={styles.login}>
             <div className={styles.title}>
                 <p>
-                ورود
+                تایید شماره موبایل 
                 </p>
             </div>
             <div className={styles.inputs}>
             <div className={styles['text-field']}>
             <TextFieldIcon
-             inputName="msisdn"
-             value={msisdn}
-             imgSrc="../../icons/phone-icon.svg"
-             imgAlt="phone icon"
-             label='شماره همراه'
+             inputName="code"
+             value={code}
+             label={`کد تایید پیامک شده به شماره ${router.query.phoneNum} را وارد نمایید`}
              type="tel"
              handleOnChange={handleOnChange}
-             isError={!isEmpty(textFieldError.msisdn) || isError}
-             errorMsg={textFieldError.msisdn || errorMsg}
+             isError={!isEmpty(textFieldError.code) || isError}
+             errorMsg={textFieldError.code || errorMsg}
              />
             </div>
           <div className={styles['text-field']}>
           <TextFieldIcon
              inputName="password"
-             imgSrc="../../icons/lock-icon.svg"
-             imgAlt="phone icon"
-             label='رمز ورود'
+             label='رمز ورود جدید'
              type={!showPass && "password"}
              value={password}
              autoComplete="new-password"
@@ -138,22 +147,14 @@ const Login = () => {
              handleOnChange={handleOnChange}
              endIcon
              />
-             <div className={styles['fotget-pass-text']}>
-          <Link href={`/${merchantId}/authenticate/recovery`}>
-            <p>
-            رمز ورود را فراموش کرده ام
-            </p>
-          </Link>
           </div>
-          </div>
-          
             </div>
             <div className={styles.btn}>
-                <button onClick={loginHandler}>
-                ورود
+                <button onClick={changePassHandler}>
+                تایید شماره موبایل و تغییر رمز ورود
                 </button>
             </div>
-        <div className={styles['register-text']}>
+        {/* <div className={styles['register-text']}>
             <p>
                 حساب کاربری ندارید؟
             </p>
@@ -162,15 +163,33 @@ const Login = () => {
                 عضو شوید
                 </p>
             </Link>
+        </div> */}
+        <div className={styles['send-code']}>
+        <div className={styles['send-code-text']}>
+            <p>
+                ارسال مجدد کد تایید
+            </p>
+            <div className={styles.timer}>
+             {`${seconds < 10 ? '0' + seconds : seconds} : 0${minutes}`}
+            </div>
         </div>
+        </div>
+        <div className={styles['footer-buttons']}>
+        <Link href={`/${merchantId}/authenticate/recovery`} className={styles['back-home']}>
+                <p>
+            تغییر شماره موبایل
+                </p>
+            </Link>
         <Link href={`/${merchantId}`} className={styles['back-home']}>
                 <p>
                  بازگشت به صفحه اصلی
                 </p>
             </Link>
         </div>
+       
+        </div>
         </AuthLayout>
      );
 }
  
-export default Login;
+export default ChangePassword;

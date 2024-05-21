@@ -5,13 +5,16 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import backIcon from "../../../../../public/icons/back-icon.svg";
+import backDarkIcon from "../../../../../public/icons/back-dark-icon.svg";
 import coinIcon from "../../../../../public/icons/coin-icon.svg";
 import receivedIcon from "../../../../../public/icons/received-icon.svg";
 import changedIcon from "../../../../public/icons/changed-icon.svg";
 import Link from "next/link";
 import { useSelector } from "react-redux";
+import useTheme from "@/hooks/useTheme";
 
 const HistoryScoreCrm = () => {
+  const{theme} = useTheme();
   const merchantId = useSelector((state:any) => state.holding.holdingInfo.id);
 
   useEffect(() => {
@@ -25,7 +28,11 @@ const HistoryScoreCrm = () => {
       <div className={styles["history-score-crm"]}>
         <div className={styles["main-title"]}>
         <Link href={`/${merchantId}/profile/customer-club`} className={styles.back}>
+        {theme === 'dark'?
+            <Image src={backDarkIcon} alt="back icon" width={24} height={24} />
+            :
             <Image src={backIcon} alt="back icon" width={24} height={24} />
+             }
             <p>بازگشت</p>
         </Link>
           <p className={styles.title}>تاریخچه امتیازها</p>

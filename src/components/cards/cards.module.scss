@@ -1,3 +1,5 @@
+@import "@/styles/mixins";
+
 .branch-card {
   position: relative;
   width: 100%;
@@ -19,6 +21,11 @@
     height: 136px;
     &.img-horizental {
        width: 80vw;
+    }
+    @include uppermobile() {
+      &.img-horizental {
+        width: 40vw;
+     }
     }
     .img {
       object-fit: cover;
@@ -101,6 +108,8 @@
   }
  
 }
+
+
 
 .purchase-history-card {
   padding: 15px;
@@ -281,3 +290,4 @@
 }
   }
 }
+

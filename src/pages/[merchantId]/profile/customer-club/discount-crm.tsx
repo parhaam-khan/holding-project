@@ -3,14 +3,17 @@ import { useEffect, useState } from "react";
 import styles from '@/styles/discountCrm.module.scss';
 import Image from "next/image";
 import backIcon from '../../../../../public/icons/back-icon.svg';
+import backDarkIcon from "../../../../../public/icons/back-dark-icon.svg";
 import coinIcon from '../../../../../public/icons/coin-icon.svg';
 import { useSelector } from "react-redux";
 import Link from "next/link";
 import { useSnackbar } from "notistack";
 import { isEmpty } from "@/helper";
 import moment from "jalali-moment";
+import useTheme from "@/hooks/useTheme";
 
 const DiscountCrm = () => {
+  const{theme} = useTheme();
   const { enqueueSnackbar } = useSnackbar();
   const merchantId = useSelector((state:any) => state.holding.holdingInfo.id);
   const useableDiscountList = useSelector((state:any) => state.user.userInfo.usableDiscounts);
@@ -31,12 +34,11 @@ const copyToClipboardHandler = (text:any) => {
   <div className={styles['main-title']}>
     
    <Link href={`/${merchantId}/profile/customer-club`} className={styles.back}>
-   <Image
-                src={backIcon}
-                alt="back icon"
-                width={24}
-                height={24}
-              />
+   {theme === 'dark'?
+            <Image src={backDarkIcon} alt="back icon" width={24} height={24} />
+            :
+            <Image src={backIcon} alt="back icon" width={24} height={24} />
+             }
               <p>
                 بازگشت
               </p>

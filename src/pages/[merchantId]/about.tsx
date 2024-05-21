@@ -4,21 +4,19 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import backIcon from '../../../public/icons/back-icon.svg';
+import backDarkIcon from "../../../public/icons/back-dark-icon.svg";
 import contactIcon from '../../../public/icons/contact-icon.svg';
 import instaIcon from '../../../public/icons/insta-icon.svg';
 import locationIcon from '../../../public/icons/location-icon.svg';
 import { useSelector } from 'react-redux';
 import Head from 'next/head';
+import useTheme from '@/hooks/useTheme';
 
 const About = () => {
+  const{theme} = useTheme();
     const router = useRouter();
     const holdingInfo = useSelector((state:any) => state.holding.holdingInfo);
 
-    // const[holdingInfo,setHoldingInfo] = useState<{[key:string]:any}>({});
-    // useEffect(() => {
-    //     const data = JSON.parse(localStorage.getItem('holdingInfo')  || '{}') 
-    //     setHoldingInfo(data)    
-    // },[])
     return ( 
       <>
       <Head>
@@ -31,12 +29,11 @@ const About = () => {
         <div className={styles.about}>
         <div className={styles['main-title']}>
    <div className={styles.back} onClick={() => router.push(`/${holdingInfo.id}/profile`)}>
-   <Image
-                src={backIcon}
-                alt="back icon"
-                width={24}
-                height={24}
-              />
+   {theme === 'dark'?
+            <Image src={backDarkIcon} alt="back icon" width={24} height={24} />
+            :
+            <Image src={backIcon} alt="back icon" width={24} height={24} />
+             }
               <p>
                 بازگشت
               </p>
