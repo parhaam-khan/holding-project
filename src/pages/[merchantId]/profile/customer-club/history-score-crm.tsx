@@ -22,7 +22,7 @@ const HistoryScoreCrm = () => {
   const merchantId = useSelector((state:any) => state.holding.holdingInfo.id);
   const [loading, setLoading] = useState(false);
   const [crmHistoryInfo, setCrmHistoryInfo] = useState<any>({});
-  
+
   useEffect(() => {
     if(merchantId){
        initialApi(merchantId);
@@ -75,8 +75,8 @@ const HistoryScoreCrm = () => {
             <Image src={coinIcon} alt="coin icon" width={16} height={16} />
           </div>
         </div>
-        {crmHistoryInfo.pointList.resultList.map((item:any,idx:number) => (
- <div key={item.id} className={styles['history-score-crm-card']}>
+        {crmHistoryInfo?.pointList?.resultList.map((item:any,idx:number) => (
+ <div key={idx} className={styles['history-score-crm-card']}>
  <div className={styles.card}>
   <div className={styles['score-title']}>
    <div className={styles.img}>
