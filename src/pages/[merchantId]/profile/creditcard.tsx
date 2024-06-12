@@ -5,8 +5,8 @@ import styles from '@/styles/creditcard.module.scss'
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import backIcon from '../../../../public/icons/back-icon.svg';
-import backDarkIcon from "../../../../public/icons/back-dark-icon.svg";
+import backIcon from '/public/icons/back-icon.svg';
+import backDarkIcon from "/public/icons/back-dark-icon.svg";
 import FilterBtn from '@/components/buttons/FilterBtn';
 import CreditcardDetail from '@/components/cards/CreditcardDetail';
 import { isEmpty } from '@/helper';

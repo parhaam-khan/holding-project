@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import styles from './Modal.module.scss'
-import closeIcon from '../../../public/icons/close-modal-icon.svg'
+import closeIcon from '/public/icons/close-modal-icon.svg'
 
 const Modal = (props:any) => {
     const {setIsOpen,yesButton,title,yesButtonHandler,children} = props;
