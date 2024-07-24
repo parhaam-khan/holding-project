@@ -3,11 +3,11 @@ import styles from '@/styles/about.module.scss'
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import backIcon from '../../../public/icons/back-icon.svg';
-import backDarkIcon from "../../../public/icons/back-dark-icon.svg";
-import contactIcon from '../../../public/icons/contact-icon.svg';
-import instaIcon from '../../../public/icons/insta-icon.svg';
-import locationIcon from '../../../public/icons/location-icon.svg';
+import backIcon from '/public/icons/back-icon.svg';
+import backDarkIcon from "/public/icons/back-dark-icon.svg";
+import contactIcon from '/public/icons/contact-icon.svg';
+import instaIcon from '/public/icons/insta-icon.svg';
+import locationIcon from '/public/icons/location-icon.svg';
 import { useSelector } from 'react-redux';
 import Head from 'next/head';
 import useTheme from '@/hooks/useTheme';

@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   basePath: '/h',
   images: {
-    domains: ['mupra.ir','aribaceramic.ir'],
+    domains: ['mupra.ir','aribaceramic.ir','mupra.me'],
   },
 }
 

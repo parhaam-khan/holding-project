@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import styles from './layout.module.scss';
-import notifIcon from '../../../public/icons/notif-icon.svg'
+import notifIcon from '/public/icons/notif-icon.svg'
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';

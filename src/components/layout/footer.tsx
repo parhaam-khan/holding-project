@@ -5,9 +5,9 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import useAuth from '@/hooks/useAuth';
-import homeIcon from '../../../public/icons/home-icon.svg'
-import historyIcon from '../../../public/icons/history-purchasing-icon.svg'
-import profileIcon from '../../../public/icons/profile-icon.svg'
+import homeIcon from '/public/icons/home-icon.svg'
+import historyIcon from '/public/icons/history-purchasing-icon.svg'
+import profileIcon from '/public/icons/profile-icon.svg'
 import { useSelector } from 'react-redux';
 
 const Footer = () => {
