@@ -10,7 +10,7 @@ const BranchInfoCard = (props:any) => {
             <div className={cs(styles['branch-img'],tagList.length > 1 && styles['img-horizental'])}>
             <Image
                 className={styles['img']}
-                src={!isEmpty(branchInfo.slideLIst) ? branchInfo.slideLIst[0] : !isEmpty(branchInfo.logo) ? branchInfo.logo : "icons/img-branch-example.svg"}
+                src={!isEmpty(branchInfo.slideImages) ? branchInfo.slideImages[0] : !isEmpty(branchInfo.logo) ? branchInfo.logo : "icons/img-branch-example.svg"}
                 // src={ "icons/img-branch-example.svg"}
                 alt={branchInfo.name}
                 fill={true}
