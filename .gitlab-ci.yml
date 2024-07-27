@@ -41,7 +41,7 @@ deploy:prod:
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
   script:
-   # - echo "MERCHANT_PROD_IMAGE_NAME=${YB_REGISTRY_ADDRESS}/prod/merchant-holding:$CI_COMMIT_SHA" > new-merch.env
+    - echo "MERCHANT_PROD_IMAGE_NAME=${YB_REGISTRY_ADDRESS}/prod/merchant-holding:$CI_COMMIT_SHA" > new-merch.env
    # - echo "$MUPRA_PROD_SERVER_SSH_KEY" >> key && chmod 600 key
    # - scp -i key -o StrictHostKeyChecking=no new-merch.env ${MUPRA_PROD_SERVER_USER}@${MUPRA_PROD_SERVER_IP}:/opt/docker-apps/new-merch.env
    # - ssh -i key -o StrictHostKeyChecking=no ${MUPRA_PROD_SERVER_USER}@${MUPRA_PROD_SERVER_IP} 'cd /opt/docker-apps && cat new-merch.env >> .env && rm new-merch.env'
