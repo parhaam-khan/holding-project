@@ -3,7 +3,17 @@ const nextConfig = {
   reactStrictMode: true,
   basePath: '/h',
   images: {
-    domains: ['mupra.ir','aribaceramic.ir','mupra.me'],
+    // domains: ['mupra.ir','aribaceramic.ir','mupra.me'],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+      {
+        protocol: "http",
+        hostname: "**.ir",
+      },
+    ],
   },
 }
 
