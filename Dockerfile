@@ -1,4 +1,4 @@
-FROM hub.yottab.io/library/node:20-alpine
+FROM hub.yottab.io/library/node:18-alpine
 
 WORKDIR /app
 
