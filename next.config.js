@@ -11,7 +11,7 @@ const nextConfig = {
       },
       {
         protocol: "http",
-        hostname: "**.ir",
+        hostname: "**",
       },
     ],
   },
