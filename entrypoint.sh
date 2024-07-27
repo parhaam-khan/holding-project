@@ -27,4 +27,4 @@ then
 fi
 
 cd /app/
-npm start
+npm start &
