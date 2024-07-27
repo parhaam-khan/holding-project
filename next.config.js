@@ -6,13 +6,13 @@ const nextConfig = {
     // domains: ['mupra.ir','aribaceramic.ir','mupra.me'],
     remotePatterns: [
       {
-        protocol: "https",
+        // protocol: "https",
         hostname: "**",
       },
-      {
-        protocol: "http",
-        hostname: "**",
-      },
+      // {
+      //   protocol: "http",
+      //   hostname: "**",
+      // },
     ],
   },
 }
