@@ -26,4 +26,5 @@ then
         cd /app && grep -rl aribaceramic.ir . | xargs sed -i "s/aribaceramic.ir/$DN/g"
 fi
 
-cd /app/ && npm start &
+cd /app/
+npm start
