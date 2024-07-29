@@ -51,22 +51,22 @@ deploy:prod:
    # - scp -i key -o StrictHostKeyChecking=no new-merch.env ${KESHTIRANI_PROD_SERVER_USER}@${KESHTIRANI_PROD_SERVER_IP}:/opt/app-docker/new-merch.env
    # - ssh -i key -o StrictHostKeyChecking=no ${KESHTIRANI_PROD_SERVER_USER}@${KESHTIRANI_PROD_SERVER_IP} 'cd /opt/app-docker && cat new-merch.env >> .env && rm new-merch.env'
    # - ssh -i key -o StrictHostKeyChecking=no ${KESHTIRANI_PROD_SERVER_USER}@${KESHTIRANI_PROD_SERVER_IP} 'cd /opt/app-docker && docker-compose up -d merchant-holding && sleep 20 && docker restart nginx'
+   # - echo -n > key
+   # - echo "$AHRAM_PROD_SERVER_SSH_KEY" >> key && chmod 600 key
+   # - scp -P ${AHRAM_PROD_SERVER_PORT} -i key -o StrictHostKeyChecking=no new-merch.env ${AHRAM_PROD_SERVER_USER}@${AHRAM_PROD_SERVER_IP}:/opt/app-docker/new-merch.env
+   # - ssh -p ${AHRAM_PROD_SERVER_PORT} -i key -o StrictHostKeyChecking=no ${AHRAM_PROD_SERVER_USER}@${AHRAM_PROD_SERVER_IP} 'cd /opt/app-docker && cat new-merch.env >> .env && rm new-merch.env'
+   # - ssh -p ${AHRAM_PROD_SERVER_PORT} -i key -o StrictHostKeyChecking=no ${AHRAM_PROD_SERVER_USER}@${AHRAM_PROD_SERVER_IP} 'cd /opt/app-docker && docker-compose up -d merchant-holding && sleep 20 && docker restart nginx'
     - echo -n > key
-    - echo "$AHRAM_PROD_SERVER_SSH_KEY" >> key && chmod 600 key
-    - scp -P ${AHRAM_PROD_SERVER_PORT} -i key -o StrictHostKeyChecking=no new-merch.env ${AHRAM_PROD_SERVER_USER}@${AHRAM_PROD_SERVER_IP}:/opt/app-docker/new-merch.env
-    - ssh -p ${AHRAM_PROD_SERVER_PORT} -i key -o StrictHostKeyChecking=no ${AHRAM_PROD_SERVER_USER}@${AHRAM_PROD_SERVER_IP} 'cd /opt/app-docker && cat new-merch.env >> .env && rm new-merch.env'
-    - ssh -p ${AHRAM_PROD_SERVER_PORT} -i key -o StrictHostKeyChecking=no ${AHRAM_PROD_SERVER_USER}@${AHRAM_PROD_SERVER_IP} 'cd /opt/app-docker && docker-compose up -d merchant-holding && sleep 20 && docker restart nginx'
-  #  - echo -n > key
-  #  - echo "$AVAND_PROD_SERVER_SSH_KEY" >> key && chmod 600 key
-  #  - scp -P ${AVAND_PROD_SERVER_PORT} -i key -o StrictHostKeyChecking=no new-merch.env ${AVAND_PROD_SERVER_USER}@${AVAND_PROD_SERVER_IP}:/opt/app-docker/new-merch.env
-  #  - ssh -p ${AVAND_PROD_SERVER_PORT} -i key -o StrictHostKeyChecking=no ${AVAND_PROD_SERVER_USER}@${AVAND_PROD_SERVER_IP} 'cd /opt/app-docker && cat new-merch.env >> .env && rm new-merch.env'
-  #  - ssh -p ${AVAND_PROD_SERVER_PORT} -i key -o StrictHostKeyChecking=no ${AVAND_PROD_SERVER_USER}@${AVAND_PROD_SERVER_IP} 'cd /opt/app-docker && docker-compose up -d merchant-holding && sleep 20 && docker restart nginx'
+    - echo "$AVAND_PROD_SERVER_SSH_KEY" >> key && chmod 600 key
+    - scp -P ${AVAND_PROD_SERVER_PORT} -i key -o StrictHostKeyChecking=no new-merch.env ${AVAND_PROD_SERVER_USER}@${AVAND_PROD_SERVER_IP}:/opt/app-docker/new-merch.env
+    - ssh -p ${AVAND_PROD_SERVER_PORT} -i key -o StrictHostKeyChecking=no ${AVAND_PROD_SERVER_USER}@${AVAND_PROD_SERVER_IP} 'cd /opt/app-docker && cat new-merch.env >> .env && rm new-merch.env'
+    - ssh -p ${AVAND_PROD_SERVER_PORT} -i key -o StrictHostKeyChecking=no ${AVAND_PROD_SERVER_USER}@${AVAND_PROD_SERVER_IP} 'cd /opt/app-docker && docker-compose up -d merchant-holding && sleep 20 && docker restart nginx'
 ###VPS_GERMANY_TEST####
-    - echo -n > key
-    - echo "$GERMAN_PROD_SERVER_SSH_KEY" >> key && chmod 600 key
-    - scp -i key -o StrictHostKeyChecking=no new-merch.env ${GERMAN_PROD_SERVER_USER}@${GERMAN_PROD_SERVER_IP}:/opt/app-docker/new-merch.env
-    - ssh -i key -o StrictHostKeyChecking=no ${GERMAN_PROD_SERVER_USER}@${GERMAN_PROD_SERVER_IP} 'cd /opt/app-docker && cat new-merch.env >> .env && rm new-merch.env'
-    - ssh -i key -o StrictHostKeyChecking=no ${GERMAN_PROD_SERVER_USER}@${GERMAN_PROD_SERVER_IP} 'cd /opt/app-docker && docker-compose up -d merchant-holding && sleep 20 && docker restart nginx'
+  #  - echo -n > key
+  #  - echo "$GERMAN_PROD_SERVER_SSH_KEY" >> key && chmod 600 key
+  #  - scp -i key -o StrictHostKeyChecking=no new-merch.env ${GERMAN_PROD_SERVER_USER}@${GERMAN_PROD_SERVER_IP}:/opt/app-docker/new-merch.env
+  #  - ssh -i key -o StrictHostKeyChecking=no ${GERMAN_PROD_SERVER_USER}@${GERMAN_PROD_SERVER_IP} 'cd /opt/app-docker && cat new-merch.env >> .env && rm new-merch.env'
+  #  - ssh -i key -o StrictHostKeyChecking=no ${GERMAN_PROD_SERVER_USER}@${GERMAN_PROD_SERVER_IP} 'cd /opt/app-docker && docker-compose up -d merchant-holding && sleep 20 && docker restart nginx'
     ##V.1.2
     - rm key
   only:
